@@ -1,0 +1,707 @@
+/* 1. BASE Y VARIABLES DE DISEÑO */
+:root {
+	/* Paleta de Color */
+	--color-primary: #5a67d8;
+	--color-secondary: #4a5568;
+	--color-background: #f7fafc;
+	--color-text-dark: #2d3748;
+	--color-card-bg: #ffffff;
+
+	/* Sombras y Transiciones */
+	--shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+		0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+		0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	--transition-speed: 0.3s;
+}
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+		Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	background-color: var(--color-background);
+	color: var(--color-text-dark);
+	line-height: 1.7;
+}
+
+/* Agrega esto cerca del inicio de style.css para una transición suave */
+body, .main-header, .project-card, .skill-category-block, .contact-section {
+	transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
+
+main {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 30px 20px 30px;
+	min-height: 85vh;
+}
+h1,
+h2,
+h3 {
+	color: var(--color-text-dark);
+	line-height: 1.2;
+}
+p {
+	color: var(--color-secondary);
+}
+
+/* 2. LAYOUT: Header, Navegación y Hamburguesa (Móvil) */
+.main-header {
+	background-color: var(--color-card-bg);
+	padding: 18px 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	box-shadow: var(--shadow-subtle);
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+}
+.logo a {
+	color: var(--color-primary);
+	text-decoration: none;
+	font-size: 1.5em;
+	font-weight: 800;
+}
+.main-nav ul {
+	list-style: none;
+	display: flex;
+	gap: 25px;
+}
+.main-nav a {
+	color: var(--color-secondary);
+	text-decoration: none;
+	font-weight: 600;
+	transition: color var(--transition-speed);
+}
+.main-nav a:hover {
+	color: var(--color-primary);
+}
+/* Estilos para el botón de hamburguesa */
+.menu-toggle {
+	display: none;
+	font-size: 1.5em;
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: var(--color-text-dark);
+	padding: 5px 10px;
+	z-index: 1001;
+}
+
+/* 3. COMPONENTES: Botones */
+.btn {
+	padding: 12px 25px;
+	border-radius: 6px;
+	text-decoration: none;
+	transition: all var(--transition-speed);
+	font-weight: 700;
+	display: inline-block;
+	text-align: center;
+	border: none;
+	cursor: pointer;
+}
+.btn-primary {
+	background-color: var(--color-primary);
+	color: white;
+	box-shadow: var(--shadow-subtle);
+}
+.btn-primary:hover {
+	background-color: #434190;
+	box-shadow: var(--shadow-hover);
+	transform: translateY(-2px);
+}
+.btn-secondary {
+	background-color: var(--color-card-bg);
+	color: var(--color-primary);
+	border: 2px solid var(--color-primary);
+}
+.btn-secondary:hover {
+	background-color: var(--color-primary);
+	color: var(--color-card-bg);
+}
+
+/* 4. COMPONENTES: Tarjetas y Tags */
+.projects-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	gap: 30px;
+	margin-top: 30px;
+}
+.project-card,
+.skill-category-block,
+.contact-section {
+	background-color: var(--color-card-bg);
+	border-radius: 12px;
+	padding: 30px;
+	box-shadow: var(--shadow-subtle);
+	transition: box-shadow var(--transition-speed),
+		transform var(--transition-speed);
+}
+.project-card:hover {
+	box-shadow: var(--shadow-hover);
+	transform: translateY(-5px);
+}
+/* Regla corregida para tags de texto simple */
+.tag,
+.skill-tag {
+	display: inline-block;
+	background-color: #e2e8f0;
+	color: var(--color-secondary);
+	padding: 6px 12px;
+	border-radius: 4px;
+	font-size: 0.8em;
+	font-weight: 600;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+/* --- ESTILOS PARA LOGOS EN TAGS --- */
+.tag.has-logo {
+	display: flex; /* Habilita Flexbox */
+	align-items: center; /* Alinea verticalmente */
+	padding: 6px 12px; /* Ajusta el padding si es necesario */
+}
+.tag-icon {
+	/* Para Devicons, ajustamos el tamaño de la fuente */
+	font-size: 1.3em; 
+	margin-right: 8px; /* Espacio entre el icono y el texto */
+	flex-shrink: 0; 
+}
+/* ---------------------------------- */
+
+.tech-tags {
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+
+/* 5. SECCIÓN HERO (Página de Inicio) */
+.hero-section {
+	padding: 0 0 80px 0;
+	text-align: center;
+	margin-bottom: 40px;
+}
+.hero-content {
+	max-width: 800px;
+	margin: 0 auto;
+}
+.profile-img {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	object-fit: cover;
+	margin-bottom: 20px;
+	border: 4px solid var(--color-primary);
+	box-shadow: var(--shadow-hover);
+}
+.hero-section h1 {
+	font-size: 3em;
+	margin-bottom: 10px;
+	margin-top: 20px;
+}
+.subtitle {
+	font-size: 1.2em;
+	margin-bottom: 25px;
+}
+.experience-badge {
+	display: inline-block;
+	padding: 5px 15px;
+	background-color: #feebc8;
+	color: #9c4221;
+	border-radius: 4px;
+	font-weight: 700;
+	margin-bottom: 30px;
+}
+.projects-preview h2 {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+/* 6. ESTILOS DE PÁGINAS Y SECCIONES */
+
+/* -- Estilos para la Página de Habilidades (Skills) -- */
+.skills-page-header {
+	/* Eliminamos text-align: center y padding/margin para que el contenido fluya */
+	padding: 0; 
+	margin-bottom: 30px;
+}
+
+/* CONTENEDOR FLEX: Divide el encabezado en dos áreas principales (Info y Cuadrícula) */
+.skills-container {
+	display: flex;
+	gap: 40px; /* Espacio entre la descripción y la cuadrícula */
+	align-items: flex-start; /* Alinea los ítems en la parte superior */
+	margin-top: 40px;
+}
+
+/* LADO IZQUIERDO: Título, Subtítulo y Resumen */
+.skills-info-column {
+	flex: 1; /* Ocupa el espacio restante */
+	max-width: 50%; /* Limita el ancho de la columna de texto */
+	padding-top: 15px; /* Pequeño ajuste para la alineación visual con la cuadrícula */
+}
+
+/* Ajustamos los estilos del texto dentro de la columna de info */
+.skills-info-column .page-title {
+	text-align: left;
+	font-size: 2.5em;
+	margin-bottom: 15px;
+}
+
+.skills-info-column .subtitle {
+	text-align: left;
+	margin-bottom: 15px;
+}
+
+.skills-info-column .experience-badge {
+	margin-bottom: 30px;
+}
+
+.skills-summary-text {
+	max-width: none; /* Quitamos el max-width que tenía centrado */
+	margin: 0;
+	padding: 0;
+	text-align: left;
+}
+.skills-summary-text p {
+	margin-bottom: 15px;
+}
+
+/* LADO DERECHO: Cuadrícula de Habilidades (Backend, DB, Frontend) */
+.skills-list-grid {
+	flex: 1; /* Ocupa el espacio restante (aprox 50%) */
+	display: grid;
+	/* Define 3 columnas flexibles dentro de este contenedor */
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px; /* Espacio entre las tarjetas de Backend, DB, Frontend */
+	margin: 0;
+	padding: 0;
+}
+.skill-category-block {
+	padding: 25px;
+}
+.skill-category-block h3 {
+	color: var(--color-primary);
+	font-size: 1.3em;
+	margin-bottom: 20px;
+	text-align: center; 
+}
+.tags-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.skill-tag-primary {
+	/* Destaca las etiquetas de habilidad */
+	background-color: var(--color-primary);
+	color: white;
+	font-weight: 500;
+}
+
+/* -- Estilos para la Página de Contacto -- */
+.contact-section {
+	max-width: 650px;
+	margin: 50px auto;
+}
+.contact-form {
+	margin-top: 30px;
+}
+.form-group {
+	margin-bottom: 20px;
+}
+.form-group label {
+	display: block;
+	margin-bottom: 8px;
+	font-weight: 600;
+	color: var(--color-text-dark);
+}
+.form-input,
+.form-textarea {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #e2e8f0;
+	border-radius: 6px;
+	font-size: 16px;
+	transition: all var(--transition-speed);
+}
+.form-input:focus,
+.form-textarea:focus {
+	border-color: var(--color-primary);
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(90, 103, 216, 0.2);
+}
+.form-textarea {
+	resize: vertical;
+}
+
+/* -- Alertas de Éxito/Error -- */
+.alert {
+	padding: 15px;
+	margin-bottom: 0;
+	border-radius: 6px;
+	font-weight: 600;
+	border: 1px solid transparent;
+}
+.alert-success {
+	background-color: #e6fffa !important;
+	color: #38a169 !important;
+	border-color: #48bb78 !important;
+}
+
+.alert-error {
+	background-color: #fff5f5 !important;
+	color: #e53e3e !important;
+	border-color: #fc8181 !important;
+}
+
+/* -- Estilos para la Página de Detalle de Proyecto -- */
+.project-detail-section {
+	max-width: 900px;
+	margin: 50px auto 80px auto;
+	padding: 30px;
+	background-color: var(--color-card-bg);
+	border-radius: 12px;
+	box-shadow: var(--shadow-subtle);
+}
+
+.back-link {
+	display: inline-block;
+	margin-bottom: 25px;
+	color: var(--color-secondary);
+	text-decoration: none;
+	font-weight: 600;
+	transition: color var(--transition-speed);
+}
+
+.back-link:hover {
+	color: var(--color-primary);
+}
+
+.project-title {
+	font-size: 2.5em;
+	margin-bottom: 10px;
+}
+
+.project-meta {
+	display: flex;
+	gap: 30px;
+	margin-bottom: 30px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #e2e8f0;
+}
+
+.meta-item {
+	color: var(--color-secondary);
+	font-size: 0.95em;
+	font-weight: 500;
+}
+
+/* Reglas relacionadas a logos eliminadas o simplificadas */
+
+.project-summary h2,
+.project-technologies h2,
+.project-links h2 {
+	font-size: 1.5em;
+	margin-top: 30px;
+	margin-bottom: 15px;
+	color: var(--color-text-dark);
+}
+
+.project-technologies .tags-container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+/* Estado "En Proceso" (usado en Detalle y Modal) */
+.status-in-progress {
+	color: #9c4221;
+	background-color: #feebc8;
+	display: inline-block;
+	padding: 5px 15px;
+	border-radius: 4px;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+
+.project-links {
+	padding-top: 20px;
+}
+
+.project-links .btn {
+	margin-right: 15px;
+}
+
+/* --- 7. SECCIÓN DE INSPIRACIÓN (CITAS) --- */
+.inspiration-quote-section {
+	padding: 60px 0;
+	margin: 40px auto;
+	text-align: center;
+	max-width: 800px;
+	border-top: 2px solid var(--color-primary); /* Línea de color para destacar */
+	border-bottom: 2px solid var(--color-primary);
+}
+
+.quote-text {
+	font-size: 1.4em;
+	font-style: italic;
+	font-weight: 500;
+	color: var(--color-text-dark); /* Color más oscuro para que resalte */
+	line-height: 1.6;
+	margin-bottom: 20px;
+}
+
+.quote-author {
+	font-size: 1em;
+	font-weight: 700;
+	color: var(--color-secondary);
+	margin-top: 10px;
+}
+
+/* --- ESTILOS DEL MODAL (Detalle de Proyectos) --- */
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 2000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.7);
+	padding-top: 50px;
+}
+
+.modal-content {
+	background-color: var(--color-card-bg);
+	margin: 5% auto;
+	padding: 30px;
+	border-radius: 12px;
+	max-width: 600px;
+	position: relative;
+	animation-name: animatetop;
+	animation-duration: 0.4s;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Animación de entrada */
+@keyframes animatetop {
+	from {
+		top: -300px;
+		opacity: 0;
+	}
+	to {
+		top: 0;
+		opacity: 1;
+	}
+}
+
+.close-btn {
+	color: var(--color-text-dark);
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+	transition: color 0.3s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+	color: var(--color-primary);
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.modal-actions {
+	margin-top: 25px;
+	display: flex;
+	gap: 15px;
+}
+
+/* 7. PIE DE PÁGINA Y LINKS SOCIALES */
+.main-footer {
+	text-align: center;
+	padding: 30px 20px;
+	border-top: 1px solid #e2e8f0;
+	margin-top: 40px;
+	color: var(--color-secondary);
+	font-size: 0.9em;
+}
+
+.social-links {
+	margin-top: 15px;
+}
+
+.social-links a {
+	color: var(--color-primary);
+	margin: 0 12px;
+	text-decoration: none;
+	font-weight: 600;
+	transition: color 0.3s;
+}
+
+.social-links a:hover {
+	color: var(--color-text-dark);
+}
+
+/* --- DEFINICIÓN DE COLORES PARA EL TEMA OSCURO --- */
+.dark-mode {
+	/* Fondo */
+	--color-background: #1a202c; /* Fondo oscuro */
+	--color-card-bg: #2d3748;
+	 
+	/* Texto */
+	--color-text-dark: #e2e8f0;
+	--color-secondary: #a0aec0;
+
+	/* Sombras (para que no destaquen tanto en oscuro) */
+	--shadow-subtle: 0 4px 6px -1px rgba(255, 255, 255, 0.05),
+		0 2px 4px -1px rgba(255, 255, 255, 0.05);
+	--shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.2),
+		0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustes específicos para que los elementos mantengan su contraste en Dark Mode */
+.dark-mode .main-nav a,
+.dark-mode .logo a,
+.dark-mode .close-btn {
+	color: var(--color-text-dark);
+}
+
+.dark-mode .project-card:hover {
+	box-shadow: var(--shadow-hover);
+	transform: translateY(-5px);
+}
+
+/* Colores de los tags en modo oscuro */
+.dark-mode .tag,
+.dark-mode .skill-tag {
+	background-color: #4a5568;
+	color: #cbd5e0;
+}
+
+.theme-toggle-btn {
+	background: none;
+	border: none;
+	font-size: 1.5em;
+	cursor: pointer;
+	color: var(--color-text-dark); 
+	padding: 5px 10px;
+	z-index: 1001;
+	margin-left: auto; 
+	margin-right: 15px;
+}
+
+/* 8. MEDIA QUERIES (Móvil) */
+@media (max-width: 768px) {
+	.main-header {
+		background-color: var(--color-card-bg);
+		padding: 18px 30px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		box-shadow: var(--shadow-subtle);
+		width: 100%; 
+		position: sticky;
+		top: 0;
+		z-index: 1000;
+	}
+	.main {
+		padding: 0 15px 20px 15px; 
+	}
+
+	/* 1. Muestra el botón de hamburguesa y esconde el menú */
+	.menu-toggle {
+		display: block; 
+	}
+
+	.main-nav {
+		display: none; 
+		position: absolute;
+		top: 60px;
+		left: 0;
+		right: 0;
+		background-color: var(--color-card-bg);
+		box-shadow: var(--shadow-hover);
+		padding: 20px 0;
+		z-index: 999;
+		transition: transform 0.3s ease-in-out;
+	}
+
+	.main-nav ul {
+		flex-direction: column; /* Apila los enlaces */
+		width: 100%; 
+		text-align: center;
+	}
+
+	/* 3. Clase JS que MUESTRA el menú */
+	.main-nav.open {
+		display: block;
+	}
+
+	.main-nav ul li {
+		padding: 10px 0;
+		border-bottom: 1px solid #e2e8f0;
+	}
+	.main-nav ul li:last-child {
+		border-bottom: none;
+	}
+
+	.main-nav a {
+		display: block;
+		padding: 10px 0;
+	}
+
+	.inspiration-quote-section {
+		padding: 40px 15px;
+		margin: 30px auto;
+	}
+	.quote-text {
+		font-size: 1.1em;
+	}
+	.quote-author {
+		font-size: 0.9em;
+	}
+	 
+	/* REGLAS AGREGADAS PARA LOS BOTONES EN MÓVIL */
+	 
+	/* 1. Arregla los botones "Ver Proyectos" y "Contactar Ahora" de la sección Hero */
+	.hero-section div a.btn {
+		display: block; 
+		margin: 10px auto; 
+	}
+	 
+	/* 2. Arregla el botón de Contacto en el header (para que mantenga su estilo) */
+	.main-nav ul li a.btn {
+		padding: 12px 25px; 
+		width: auto; 
+		margin: 10px auto; 
+	}
+	 
+	/* Anula el borde inferior para el elemento 'li' que contiene el botón del header */
+	.main-nav ul li:has(a.btn) {
+		border-bottom: none; 
+	}
+	
+	/* CAMBIO PARA MOVIL: Vuelve a apilar la columna de info y la cuadrícula */
+	.skills-container {
+		flex-direction: column; 
+		gap: 20px;
+	}
+	
+	.skills-info-column {
+		max-width: 100%; 
+		padding-top: 0;
+	}
+
+	.skills-info-column .page-title,
+	.skills-info-column .subtitle {
+		text-align: center;
+	}
+	
+	.skills-list-grid {
+		/* Vuelve a una sola columna dentro de la cuadrícula de categorías */
+		grid-template-columns: 1fr;
+	}
+}

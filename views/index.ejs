@@ -1,0 +1,32 @@
+<%- include('./partials/header.ejs') %>
+
+<section class="hero-section" id="inicio">
+    <div class="hero-content">
+        <img src="/images/perfil.jpg" alt="Foto de Perfil de Luigi" class="profile-img"/>
+
+        <h1>¡Hola! Soy Luis Roríguez un Desarrollador Full Stack</h1>
+        <p class="subtitle"><%= experiencia.descripcion %></p>
+        <span class="experience-badge">Con <%= experiencia.años %> de experiencia (<%= experiencia.periodo%>)</span>
+
+        <div>
+            <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
+            <a href="#contacto" class="btn btn-secondary">Contactar Ahora</a>
+        </div>
+    </div>
+</section>
+
+<%- include('./sections/skills.ejs') %> 
+<%- include('./sections/projects.ejs')%>
+
+<section class="inspiration-quote-section">
+    <div class="quote-content">
+        <p class="quote-text">
+            "Cada obstáculo superado no fue un error, sino una lección de maestría. Mi portafolio no solo muestra código, sino la perseverancia de quien se niega a rendirse ante la complejidad."
+        </p>
+        <p class="quote-author">
+            — Luis Rodríguez
+        </p>
+    </div>
+</section>
+<%- include('./sections/contact.ejs') %> 
+<%- include('./partials/footer.ejs')%>

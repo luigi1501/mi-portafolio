@@ -1,0 +1,51 @@
+<%- include('./partials/header.ejs') %>
+
+<section class="project-detail-section">
+  <a href="/proyectos" class="back-link">← Volver a la Lista de Proyectos</a>
+
+  <h1 class="project-title"><%= proyecto.nombre %></h1>
+
+  <div class="project-meta">
+    <span class="meta-item"> Fecha: <%= proyecto.fecha %></span>
+    <span class="meta-item"
+    >**Stack Principal:** <%= proyecto.tecnologias[0] %></span>
+  </div>
+
+  <% if (proyecto.enProceso) { %>
+    <p class="status-in-progress">Este proyecto está actualmente En Proceso.</p>
+  <% } %>
+
+  <div class="project-summary">
+    <h2>Resumen</h2>
+    <p><%= proyecto.resumen %></p>
+
+    <% if (proyecto.descripcionLarga) { %> 
+      <p><%= proyecto.descripcionLarga %></p>
+    <% } %>
+  </div>
+
+  <div class="project-technologies">
+    <h2>Tecnologías Utilizadas</h2>
+    <div class="tags-container">
+      <% proyecto.tecnologias.forEach(tech => { %>
+        <span class="skill-tag"><%= tech %></span>
+      <% }) %>
+    </div>
+  </div>
+
+  <div class="project-links">
+    <h2>Enlaces</h2>
+    
+    <% if (proyecto.linkDemo && !proyecto.enProceso) { %> 
+      <a href="<%= proyecto.linkDemo %>" target="_blank" class="btn btn-primary">Ver Demo</a>
+    <% } %> 
+    
+    <% if (proyecto.linkRepo) { %> 
+      <a href="<%= proyecto.linkRepo %>" target="_blank" class="btn btn-secondary">Ver Código (GitHub)</a>
+    <% } %>
+    
+    <a href="/contacto" class="btn btn-primary">Hablemos de este proyecto</a>
+  </div>
+</section>
+
+<%- include('./partials/footer.ejs') %>

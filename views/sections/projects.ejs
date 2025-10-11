@@ -1,0 +1,47 @@
+<section class="projects-archive" id="proyectos">
+    <h2 class="page-title">Proyectos Destacados</h2>
+    <p class="subtitle">
+        Una selección de mis trabajos más relevantes en desarrollo Full Stack.
+    </p>
+
+    <div class="projects-grid">
+        <% todosLosProyectos.forEach(proyecto => { %>
+        <article class="project-card large-card">
+            <div class="card-info">
+                
+                <% if (proyecto.enProceso) { %>
+                    <span class="status-in-progress">En Proceso</span>
+                <% } %>
+                <span class="project-year"><%= proyecto.fecha %></span>
+                <h3><%= proyecto.nombre %></h3>
+                <p class="summary"><%= proyecto.resumen %></p>
+                <div class="tech-tags">
+                    <% proyecto.tecnologias.forEach(tech => { %>
+                    <span class="tag"><%= tech %></span>
+                    <% }) %>
+                </div>
+                <button 
+                    class="btn btn-secondary open-modal-btn"
+                    data-proyecto='<%= JSON.stringify(proyecto) %>' 
+                >
+                    Ver Detalles
+                </button>
+            </div>
+        </article>
+        <% }) %>
+    </div>
+</section>
+
+<div id="project-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-status"></p>
+        <div id="modal-tech-tags" class="tech-tags"></div>
+        <p id="modal-description"></p>
+        <div class="modal-actions">
+            <a id="modal-link-demo" class="btn btn-primary" target="_blank" style="display: none;">Ver Demo</a>
+            <a id="modal-link-repo" class="btn btn-secondary" target="_blank">Ver Código</a>
+        </div>
+    </div>
+</div>

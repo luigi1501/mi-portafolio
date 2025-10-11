@@ -1,0 +1,28 @@
+Archivo de configuración de Git
+Ignora archivos y carpetas comunes en proyectos Node.js y Express
+Dependencias de Node
+/node_modules
+/dist
+/build
+
+Variables de entorno
+.env
+
+Archivos de logs
+npm-debug.log*
+.log
+/logs
+
+Almacenamiento local (ej. VS Code, editor)
+.vscode/
+.idea/
+.history/
+
+Archivos temporales de compilación o de sistema
+/temp
+*.tmp
+*.bak
+
+Ignorar archivos del sistema operativo (macOS, Windows, Linux)
+.DS_Store
+Thumbs.db

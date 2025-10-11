@@ -1,0 +1,99 @@
+<section class="skills-page-header" id="habilidades">
+	<h2 class="page-title">Habilidades Técnicas y Experiencia</h2>
+	<p class="subtitle">
+		Mi stack tecnológico se centra en soluciones robustas y escalables.
+	</p>
+	<p class="experience-badge">
+		Período de experiencia profesional: <%= periodoExperiencia %>
+	</p>
+
+<section class="inspiration-quote-section">
+    <div class="quote-content">
+        <p class="quote-text">
+			    Mi enfoque se basa en el desarrollo backend con Node.js y Express, complementado con
+			    conocimientos sólidos en Python. Tengo experiencia trabajando con bases de datos SQL y NoSQL,
+  			  utilizando MongoDB, MySQL, PostgreSQL y SQLite según los requisitos del proyecto.
+
+			    En el frontend, manejo HTML5, CSS3 y EJS para crear interfaces de usuario atractivas y funcionales.
+			    Mi objetivo es construir aplicaciones web robustas y escalables que ofrezcan una experiencia de usuario excepcional.
+		    </p>
+	  </div>
+</section>
+
+<section class="skills-list-grid">
+	<% skillsPorCategoria.forEach(categoria => { %>
+	<div class="skill-category-block">
+		<h3><%= categoria.categoria %></h3>
+		<div class="tags-container">
+			<% categoria.tags.forEach(tag => { %>
+				<%
+					// Función simple para mapear el tag a la clase de Devicon
+					let deviconClass = '';
+					
+					switch (tag.toLowerCase().split('(')[0].trim()) {
+						case 'node.js':
+							deviconClass = 'devicon-nodejs-plain colored';
+							break;
+						case 'express':
+							// Express no tiene un icono "colored" nativo, usamos el normal
+							deviconClass = 'devicon-express-original'; 
+							break;
+						case 'python':
+							deviconClass = 'devicon-python-plain colored';
+							break;
+						// Asumo que 'SQL/NoSQL' es una categoría general, no una tecnología con un logo único.
+						case 'sql/nosql':
+							// Se deja en blanco para no mostrar un logo, o se elige uno genérico si es necesario.
+							deviconClass = ''; 
+							break;
+						case 'mongodb':
+							deviconClass = 'devicon-mongodb-plain colored';
+							break;
+						case 'mysql':
+							deviconClass = 'devicon-mysql-plain colored';
+							break;
+						case 'postgresql':
+							deviconClass = 'devicon-postgresql-plain colored';
+							break;
+						case 'sqlite':
+							deviconClass = 'devicon-sqlite-plain colored';
+							break;
+						case 'html5':
+							deviconClass = 'devicon-html5-plain colored';
+							break;
+						case 'css3':
+							deviconClass = 'devicon-css3-plain colored';
+							break;
+						case 'ejs':
+							// EJS no tiene un icono, usamos un marcador simple
+							deviconClass = ''; 
+							break;
+						case 'javascript':
+							deviconClass = 'devicon-javascript-plain colored';
+							break;
+						case 'git':
+							deviconClass = 'devicon-git-plain colored';
+							break;
+						case 'github':
+							deviconClass = 'devicon-github-original colored';
+							break;
+						case 'npm':
+							deviconClass = 'devicon-npm-original-wordmark colored';
+							break;
+						default:
+							deviconClass = ''; 
+							break;
+					}
+				%>
+
+				<span class="tag skill-tag <%= deviconClass ? 'has-logo' : '' %>">
+					<% if (deviconClass) { %>
+						<i class="tag-icon <%= deviconClass %>"></i>
+					<% } %>
+					<%= tag %>
+				</span>
+			<% }) %>
+		</div>
+	</div>
+	<% }) %>
+</section>
