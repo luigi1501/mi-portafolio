@@ -13,11 +13,13 @@ router.post("/", async (req, res, next) => {
   // 1. Obtener datos del formulario
   const { nombre, email, mensaje } = req.body;
 
-  // 2. Configuración EXPLÍCITA del transportador para Gmail (SMTP con SSL/TLS)
+  // 2. Configuración EXPLÍCITA del transportador para Gmail (SMTP con TLS EXPLÍCITO)
+  // Utilizamos el puerto 587 y secure: false (que activa STARTTLS)
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
-    port: 465, 
-    secure: true, // true para puerto 465 (SSL)
+    port: 587, 
+    secure: false, // ¡IMPORTANTE! False para el puerto 587 (usa STARTTLS)
+    requireTLS: true, // Fuerza el uso de TLS, esencial para Gmail
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS, // La clave de aplicación de Google
