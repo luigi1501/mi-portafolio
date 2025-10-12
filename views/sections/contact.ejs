@@ -1,4 +1,3 @@
-<!-- LA SECCIÓN DE CONTACTO CON TUS CLASES CSS PERSONALIZADAS -->
 <section class="contact-section" id="contacto">
     <h2 class="page-title">Contactar Ahora</h2>
     <p class="subtitle">
@@ -6,15 +5,13 @@
         de 24 horas.
     </p>
 
-    <!-- Contenedor de Mensajes de Estado (Éxito/Error) - Usará las clases alert-success/alert-error -->
-    <!-- Inicialmente oculto por JS, se muestra después del intento de envío. -->
+    <!-- Contenedor de Mensajes de Estado (Éxito/Error) -->
     <div id="statusMessage" class="alert hidden"></div>
 
-    <!-- El FORMULARIO - Nota: El action y method se eliminan, el envío es por JS de EmailJS -->
+    <!-- El FORMULARIO - Envío manejado por JavaScript -->
     <form id="contactForm" class="contact-form">
         <div class="form-group">
             <label for="from_name">Nombre Completo</label>
-            <!-- Importante: Los nombres de los campos deben coincidir con tu plantilla de EmailJS -->
             <input
                 type="text"
                 id="from_name"
@@ -50,7 +47,7 @@
     </form>
 </section>
 
-<!-- 3. JAVASCRIPT DE ENVÍO DE EMAILJS -->
+<!-- 2. JAVASCRIPT DE ENVÍO DE EMAILJS -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const form = document.getElementById('contactForm');
@@ -60,23 +57,19 @@
         form.addEventListener('submit', function (event) {
             event.preventDefault();
 
-            // Deshabilitar botón y mostrar cargando
+            // Deshabilitar botón y limpiar mensajes
             submitButton.disabled = true;
             submitButton.textContent = 'Enviando...';
             statusMessage.textContent = '';
-            statusMessage.classList.add('hidden');
-            statusMessage.className = 'alert hidden'; // Limpiar clases de éxito/error anteriores
+            statusMessage.className = 'alert hidden'; 
 
             // Parámetros del servicio EmailJS
-            // 🚨 ¡Paso Final! Reemplaza esta cadena con el Service ID REAL (que comienza con 'service_').
-            const serviceID = "service_aqui_va_el_id_real"; 
+            // 🟢 Service ID: ¡CORREGIDO! Usando el Service ID que generaste con el formato correcto.
+            const serviceID = "service_akz9jkw"; 
             
-            // 🟢 CORREGIDO: Usando el Template ID encontrado en el historial de EmailJS.
-            const templateID = "egs-test-mail-service";
+            // 🟢 Template ID: Confirmado
+            const templateID = "template_6cq3ak2";
             
-            // Los parámetros del correo se obtienen automáticamente del formulario
-            // ya que los campos (from_name, from_email, message) coinciden con la plantilla.
-
             emailjs.sendForm(serviceID, templateID, form)
                 .then(function() {
                     // Éxito:
@@ -86,7 +79,8 @@
                 }, function(error) {
                     // Error:
                     console.error('EmailJS Error:', error);
-                    statusMessage.innerHTML = '<strong>Error al Enviar:</strong> Intenta más tarde. Código de error: ' + error.status;
+                    // Muestra un mensaje detallado en caso de fallo
+                    statusMessage.innerHTML = `<strong>Error al Enviar:</strong> Intenta más tarde. Verifica las claves y permisos. Código de error: ${error.status || 'Desconocido'}.`;
                     statusMessage.classList.add('alert-error');
                 })
                 .finally(function() {
