@@ -13,49 +13,58 @@ router.post("/", async (req, res, next) => {
   // 1. Obtener datos del formulario
   const { nombre, email, mensaje } = req.body;
 
-  // 2. Configuración EXPLÍCITA del transportador para Gmail (SMTP con TLS EXPLÍCITO)
-  // Utilizamos el puerto 587 y secure: false (que activa STARTTLS)
+  // 2. Configuración del transportador para SendGrid
+  // NOTA IMPORTANTE:
+  // En las variables de entorno de Render, debes configurar:
+  // - EMAIL_USER: 'apikey'
+  // - EMAIL_PASS: TU_API_KEY_DE_SENDGRID
+  
   const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
+    host: "smtp.sendgrid.net", // Servidor SMTP de SendGrid
     port: 587, 
     secure: false, // ¡IMPORTANTE! False para el puerto 587 (usa STARTTLS)
-    requireTLS: true, // Fuerza el uso de TLS, esencial para Gmail
+    requireTLS: true, // Fuerza el uso de TLS
     auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS, // La clave de aplicación de Google
+      user: process.env.EMAIL_USER, // Debe ser 'apikey'
+      pass: process.env.EMAIL_PASS, // Tu API Key
     },
   });
 
   // 3. Opciones del correo que vas a recibir
   const mailOptions = {
-    from: `"${nombre}" <${email}>`,
+    // Es CRUCIAL que el correo en 'from' (EMAIL_DESTINO) esté verificado en SendGrid.
+    // Usamos el email del remitente (el cliente) en el cuerpo para saber a quién responder.
+    from: process.env.EMAIL_DESTINO, // Tu correo principal (debe ser el verificado)
     to: process.env.EMAIL_DESTINO,
-    subject: `Nuevo Contacto: ${nombre} desde el Portafolio`,
+    subject: `[PORTAFOLIO] Nuevo Mensaje de ${nombre}`,
     html: `
       <h2>Detalles del Contacto</h2>
-      <p><strong>Nombre:</strong> ${nombre}</p>
-      <p><strong>Correo:</strong> ${email}</p>
-      <p><strong>Mensaje:</strong></p>
-      <p style="white-space: pre-wrap; background-color: #f7f7f7; padding: 15px; border-radius: 5px;">${mensaje}</p>
+      <p>Este mensaje fue enviado por: <strong>${nombre}</strong></p>
+      <p>Su correo de contacto es: <strong>${email}</strong></p>
+      <hr>
+      <h3>Mensaje:</h3>
+      <p style="white-space: pre-wrap; background-color: #f7f7f7; padding: 15px; border-radius: 5px; border-left: 5px solid #007bff;">${mensaje}</p>
+      <hr>
+      <p>Recuerda responder al correo: ${email}</p>
     `,
   };
 
   // 4. Enviar el correo usando async/await
   try {
     const info = await transporter.sendMail(mailOptions);
-    console.log("Correo enviado:", info.response);
+    console.log("Correo enviado con éxito (SendGrid):", info.response);
 
     const successMessage = encodeURIComponent(
-      "¡Mensaje enviado con éxito! Te contactaré pronto."
+      "¡Mensaje enviado con éxito! Recibí tu consulta y te contactaré pronto."
     );
     // Redirección exitosa (rápida)
     return res.redirect(`/?success=${successMessage}#contacto`);
   } catch (error) {
-    // Si hay un error (ej. credenciales incorrectas o timeout), se captura y se informa.
-    console.error("Error al enviar correo (Catch):", error.message || error);
+    // Si hay un error, se captura y se informa.
+    console.error("Error FATAL al enviar correo (SendGrid):", error.message || error);
 
     const errorMessage = encodeURIComponent(
-      "Hubo un error al enviar tu mensaje. Verifica tu conexión o intenta más tarde."
+      "Hubo un error al enviar tu mensaje. (Error de red/SMTP). Intenta más tarde o contáctame por LinkedIn."
     );
     // Redirección con error (rápida)
     return res.redirect(`/?error=${errorMessage}#contacto`);
