@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var nodemailer = require("nodemailer");
+var nodemailer = require("nodemailer"); // Usamos Nodemailer
 
 /* GET Contacto Page (Redirige a la página principal con el ancla) */
 router.get("/", (req, res, next) => {
@@ -13,28 +13,23 @@ router.post("/", async (req, res, next) => {
   // 1. Obtener datos del formulario
   const { nombre, email, mensaje } = req.body;
 
-  // 2. Configuración del transportador para SendGrid
-  // NOTA IMPORTANTE:
-  // En las variables de entorno de Render, debes configurar:
-  // - EMAIL_USER: 'apikey'
-  // - EMAIL_PASS: TU_API_KEY_DE_SENDGRID
-  
+  // 2. Configuración del transportador para GMAIL (Usando 587 + STARTTLS)
+  // Utiliza tus variables de entorno existentes: EMAIL_USER y EMAIL_PASS (la clave de aplicación de Gmail).
   const transporter = nodemailer.createTransport({
-    host: "smtp.sendgrid.net", // Servidor SMTP de SendGrid
+    host: "smtp.gmail.com", // Servidor SMTP de Gmail
     port: 587, 
     secure: false, // ¡IMPORTANTE! False para el puerto 587 (usa STARTTLS)
     requireTLS: true, // Fuerza el uso de TLS
     auth: {
-      user: process.env.EMAIL_USER, // Debe ser 'apikey'
-      pass: process.env.EMAIL_PASS, // Tu API Key
+      user: process.env.EMAIL_USER, // Tu correo
+      pass: process.env.EMAIL_PASS, // Tu clave de aplicación de Gmail (16 dígitos)
     },
   });
 
   // 3. Opciones del correo que vas a recibir
   const mailOptions = {
-    // Es CRUCIAL que el correo en 'from' (EMAIL_DESTINO) esté verificado en SendGrid.
-    // Usamos el email del remitente (el cliente) en el cuerpo para saber a quién responder.
-    from: process.env.EMAIL_DESTINO, // Tu correo principal (debe ser el verificado)
+    // El correo en 'from' DEBE ser el mismo que el de autenticación (EMAIL_USER).
+    from: process.env.EMAIL_USER, 
     to: process.env.EMAIL_DESTINO,
     subject: `[PORTAFOLIO] Nuevo Mensaje de ${nombre}`,
     html: `
@@ -52,7 +47,7 @@ router.post("/", async (req, res, next) => {
   // 4. Enviar el correo usando async/await
   try {
     const info = await transporter.sendMail(mailOptions);
-    console.log("Correo enviado con éxito (SendGrid):", info.response);
+    console.log("Correo enviado con éxito (Gmail 587):", info.response);
 
     const successMessage = encodeURIComponent(
       "¡Mensaje enviado con éxito! Recibí tu consulta y te contactaré pronto."
@@ -61,10 +56,10 @@ router.post("/", async (req, res, next) => {
     return res.redirect(`/?success=${successMessage}#contacto`);
   } catch (error) {
     // Si hay un error, se captura y se informa.
-    console.error("Error FATAL al enviar correo (SendGrid):", error.message || error);
+    console.error("Error FATAL al enviar correo (Gmail 587):", error.message || error);
 
     const errorMessage = encodeURIComponent(
-      "Hubo un error al enviar tu mensaje. (Error de red/SMTP). Intenta más tarde o contáctame por LinkedIn."
+      "Hubo un error al enviar tu mensaje. (Error de red/SMTP). Intenta más tarde."
     );
     // Redirección con error (rápida)
     return res.redirect(`/?error=${errorMessage}#contacto`);
