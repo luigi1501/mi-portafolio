@@ -41,7 +41,7 @@ const data = {
       destacado: true,
     },
 
-    // 🛑 PROYECTO 2: Sensus AI
+    // 🛑 PROYECTO 2: Sensus AI (¡Ahora con código disponible!)
     {
       nombre: "Sensus AI - Generador de Imágenes",
       slug: "sensus-ai",
@@ -50,8 +50,8 @@ const data = {
       resumen:
         "Generador de imágenes impulsado por IA. Enfocado en proveer inspiración visual y herramientas creativas para diseñadores y creadores de contenido.",
       linkDemo: "https://sensus-ia.onrender.com",
-      linkRepo: null,
-      enProceso: true,
+      linkRepo: "https://github.com/luigi1501/sensus-ia", //
+      enProceso: false, // <--- Lo ponemos en false para que se vea el botón
       destacado: true,
     },
 
