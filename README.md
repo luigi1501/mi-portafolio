@@ -78,10 +78,10 @@ npm start
 🤝 Conexión
 ¡Gracias por visitar mi portafolio! Si deseas contactarme para proyectos, colaboraciones o consultas técnicas, puedes encontrarme en:
 
-[LinkedIn/Web](https://www.linkedin.com/in/luis-rodriguez-9b605a3b5/)
+LinkedIn/Web: https://www.linkedin.com/in/luis-rodriguez-9b605a3b5
 
-[GitHub](https://github.com/luigi1501)
+GitHub: https://github.com/luigi1501
 
-[WhatsApp](https://wa.me/+584124523599)
+WhatsApp: https://wa.me/+584124523599
 
-[Telegram](t.me/luigix15) 
+Telegram: t.me/luigix15 
