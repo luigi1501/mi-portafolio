@@ -1,29 +1,47 @@
 const data = {
-  // Datos de la sección "Sobre Mí" y experiencia
+  // 👤 Datos de la sección "Sobre Mí" y experiencia
   experiencia: {
-    años: "3 años",
-    periodo: "2022 - 2025",
+    años: "4 años",
+    periodo: "2022 - 2026",
     descripcion:
-      "Desarrollo Full Stack con un enfoque en la optimización de rendimiento y la integración de servicios RESTful.",
-  }, // Tus habilidades técnicas
+      "Desarrollo Full Stack especializado en la creación de aplicaciones escalables, integración de bases de datos distribuidas en la nube y despliegue continuo (CI/CD).",
+  },
 
+  // 🛠️ Tus habilidades técnicas actualizadas
   skills: [
     {
       categoria: "Backend",
-      tags: ["Node.js (Express)", "Python (Tkinter/Django)", "SQL/NoSQL"],
+      tags: ["Node.js (Express)", "Python (Django/Flask)", "SQL/NoSQL", "Restful APIs"],
     },
     {
       categoria: "Bases de Datos",
-      tags: ["MongoDB", "MySQL", "PostgreSQL", "SQLite"],
+      tags: ["TiDB Cloud (NewSQL)", "MySQL", "MongoDB", "PostgreSQL", "SQLite"],
     },
     {
-      categoria: "Frontend",
-      tags: ["HTML5", "CSS3", "EJS"],
+      categoria: "Frontend & Cloud",
+      tags: ["HTML5", "CSS3", "EJS", "Vercel", "Bootstrap", "Chart.js"],
     },
-  ], // Tus proyectos clave
+  ],
 
+  // 🚀 Tus proyectos clave
   proyectos: [
-    // 🛑 PROYECTO 1: Sensus AI (En Proceso y Destacado)
+    // 🛑 PROYECTO 1: Sistema de Gestión de Inventario Pro (RECIÉN COMPLETADO)
+    {
+      nombre: "Sistema de Gestión de Inventario Pro",
+      slug: "gestion-inventario",
+      fecha: "2026",
+      tecnologias: ["Node.js", "Express", "TiDB Cloud", "MySQL", "Vercel", "EJS", "Chart.js"],
+      resumen:
+        "Solución Full Stack con base de datos distribuida en la nube. Incluye control de stock, dashboard interactivo de ventas y gestión automatizada de categorías.",
+      descripcionLarga:
+        "Este sistema utiliza una arquitectura escalable conectando Node.js con TiDB Cloud (AWS Virginia). Implementa seguridad avanzada mediante variables de entorno y un despliegue continuo a través de Vercel. Destaca por su visualización de datos en tiempo real y su alta disponibilidad.",
+      linkDemo: "https://sistema-inventario-iota.vercel.app/",
+      linkRepo: "https://github.com/luigi1501/sistema-inventario",
+      enProceso: false,
+      destacado: true,
+    },
+
+    // 🛑 PROYECTO 2: Sensus AI
     {
       nombre: "Sensus AI - Generador de Imágenes",
       slug: "sensus-ai",
@@ -32,12 +50,12 @@ const data = {
       resumen:
         "Generador de imágenes impulsado por IA. Enfocado en proveer inspiración visual y herramientas creativas para diseñadores y creadores de contenido.",
       linkDemo: "https://sensus-ia.onrender.com",
-      linkRepo: null, // Dejamos en 'null' para mostrar el mensaje de "En Proceso"
-      enProceso: true, // CLAVE: Muestra el estado "En Proceso"
+      linkRepo: null,
+      enProceso: true,
       destacado: true,
     },
 
-    // 🛑 PROYECTO 2: Sistema de Control de Asistencia QR
+    // 🛑 PROYECTO 3: Sistema de Control de Asistencia QR
     {
       nombre: "Sistema de Control de Asistencia QR",
       slug: "control-asistencia-qr",
@@ -46,19 +64,8 @@ const data = {
       resumen:
         "Sistema de control de asistencia generado por código QR para la empresa Alimentos del Alba. Escaneo en la misma página, control de entradas/salidas y historial detallado.",
       linkDemo: "https://alimentos-del-alba.onrender.com",
-      linkRepo: "https://github.com/luigi1501/Alimentos-del-Alba", // Agregado linkRepo
+      linkRepo: "https://github.com/luigi1501/Alimentos-del-Alba",
       destacado: true,
-    }, // 🛑 PROYECTO 3: Sistema de Gestión de Inventario
-
-    {
-      nombre: "Sistema de Gestión de Inventario",
-      slug: "gestion-inventario",
-      fecha: "2024 - Actualidad",
-      tecnologias: ["Node.js", "Express", "MySQL", "EJS", "CSS Modular"],
-      resumen:
-        "Desarrollo de una API robusta para el manejo de inventario en tiempo real.",
-      linkRepo: null,
-      enProceso: true, // CLAVE: Muestra el estado "En Proceso"
     },
 
     // 🛑 PROYECTO 4: Blog Personal con Python
@@ -70,7 +77,7 @@ const data = {
       resumen:
         "Un sistema de blog simple enfocado en la arquitectura MVC y la seguridad.",
       linkRepo: null,
-      enProceso: true, // CLAVE: Muestra el estado "En Proceso"
+      enProceso: true,
     },
   ],
 };
