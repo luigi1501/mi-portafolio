@@ -25,7 +25,7 @@ const data = {
 
   // 🚀 Tus proyectos clave
   proyectos: [
-    // 🛑 PROYECTO 1: Sistema de Gestión de Inventario Pro (RECIÉN COMPLETADO)
+    // 🛑 PROYECTO 1: Sistema de Gestión de Inventario Pro
     {
       nombre: "Sistema de Gestión de Inventario Pro",
       slug: "gestion-inventario",
@@ -45,13 +45,13 @@ const data = {
     {
       nombre: "Sensus AI - Generador de Imágenes",
       slug: "sensus-ai",
-      fecha: "2025",
-      tecnologias: ["Python", "Flask", "OpenAI API", "HTML5", "Tailwind CSS"],
+      fecha: "2025 - Actualidad",
+      tecnologias: ["Node.js", "Express.js", "EJS", "HTML5", "CSS"],
       resumen:
         "Generador de imágenes impulsado por IA. Enfocado en proveer inspiración visual y herramientas creativas para diseñadores y creadores de contenido.",
       linkDemo: "https://sensus-ia.onrender.com",
       linkRepo: "https://github.com/luigi1501/sensus-ia", //
-      enProceso: false, // <--- Lo ponemos en false para que se vea el botón
+      enProceso: true, //
       destacado: true,
     },
 
@@ -65,19 +65,22 @@ const data = {
         "Sistema de control de asistencia generado por código QR para la empresa Alimentos del Alba. Escaneo en la misma página, control de entradas/salidas y historial detallado.",
       linkDemo: "https://alimentos-del-alba.onrender.com",
       linkRepo: "https://github.com/luigi1501/Alimentos-del-Alba",
+      enProceso: false,
       destacado: true,
     },
 
     // 🛑 PROYECTO 4: Blog Personal con Python
     {
-      nombre: "Blog Personal con Python",
+      nombre: "Blog Profesional con Python",
       slug: "blog-python",
-      fecha: "2023 - Actualidad",
-      tecnologias: ["Python", "Flask", "SQLite", "HTML", "CSS"],
+      fecha: "2026",
+      tecnologias: ["Python", "Flask", "PostgreSQL", "Supabase", "HTML", "CSS"],
       resumen:
         "Un sistema de blog simple enfocado en la arquitectura MVC y la seguridad.",
-      linkRepo: null,
-      enProceso: true,
+      linkRepo: "https://github.com/luigi1501/mi-blog-profesional",
+      linkDemo: "https://mi-blog-profesional-5j2lmpibl-luigi1501s-projects.vercel.app/",
+      enProceso: false,
+      destacado: true,
     },
   ],
 };

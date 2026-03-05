@@ -6,13 +6,14 @@
   <h1 class="project-title"><%= proyecto.nombre %></h1>
 
   <div class="project-meta">
-    <span class="meta-item"> Fecha: <%= proyecto.fecha %></span>
-    <span class="meta-item"
-    >**Stack Principal:** <%= proyecto.tecnologias[0] %></span>
+    <span class="meta-item"><strong>Fecha:</strong> <%= proyecto.fecha %></span>
+    <span class="meta-item"><strong>Stack Principal:</strong> <%= proyecto.tecnologias[0] %></span>
   </div>
 
   <% if (proyecto.enProceso) { %>
-    <p class="status-in-progress">Este proyecto está actualmente En Proceso.</p>
+    <p class="status-in-progress">⚠️ Este proyecto está actualmente En Proceso.</p>
+  <% } else { %>
+    <p class="status-completed">✅ Proyecto Finalizado</p>
   <% } %>
 
   <div class="project-summary">
@@ -34,17 +35,19 @@
   </div>
 
   <div class="project-links">
-    <h2>Enlaces</h2>
+    <h2>Enlaces del Proyecto</h2>
     
-    <% if (proyecto.linkDemo && !proyecto.enProceso) { %> 
-      <a href="<%= proyecto.linkDemo %>" target="_blank" class="btn btn-primary">Ver Demo</a>
-    <% } %> 
-    
-    <% if (proyecto.linkRepo) { %> 
-      <a href="<%= proyecto.linkRepo %>" target="_blank" class="btn btn-secondary">Ver Código (GitHub)</a>
-    <% } %>
-    
-    <a href="/contacto" class="btn btn-primary">Hablemos de este proyecto</a>
+    <div class="links-grid">
+      <% if (proyecto.linkDemo) { %> 
+        <a href="<%= proyecto.linkDemo %>" target="_blank" class="btn btn-primary">Ver Demo</a>
+      <% } %> 
+      
+      <% if (proyecto.linkRepo) { %> 
+        <a href="<%= proyecto.linkRepo %>" target="_blank" class="btn btn-secondary">Ver Código (GitHub)</a>
+      <% } %>
+      
+      <a href="/contacto" class="btn btn-primary">Hablemos de este proyecto</a>
+    </div>
   </div>
 </section>
 
