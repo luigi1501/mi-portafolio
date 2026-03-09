@@ -15,6 +15,7 @@ Infraestructura & CI/CD: Vercel (Despliegue continuo)
 
 
 📂 Estructura del Repositorio
+
 /
 ├── bin/                # Script de inicio
 ├── data/               # Archivos JSON/JS con la data de proyectos y experiencia
