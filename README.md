@@ -51,4 +51,4 @@ GitHub: https://github.com/luigi1501
 
 WhatsApp: https://wa.me/+584124523599
 
-Telegram: t.me/luigix15 
+Telegram: https://t.me/luigix15 
