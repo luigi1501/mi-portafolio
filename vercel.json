@@ -8,6 +8,18 @@
   ],
   "routes": [
     {
+      "src": "/favicon.ico",
+      "dest": "/public/favicon.ico"
+    },
+    {
+      "src": "/favicon.png",
+      "dest": "/public/favicon.png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "dest": "/public/icon/apple-touch-icon.png"
+    },
+    {
       "src": "/(stylesheets|javascripts|images|icon)/(.*)",
       "dest": "/public/$1/$2"
     },
