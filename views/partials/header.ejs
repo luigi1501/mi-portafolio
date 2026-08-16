@@ -4,41 +4,75 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
+    
+    <!-- Meta SEO & Descripción -->
+    <meta name="description" content="Portafolio profesional de Luis Rodríguez, Desarrollador Full Stack especializado en Node.js, Express, Python, bases de datos SQL/NoSQL y arquitectura cloud." />
+    <meta name="author" content="Luis Rodríguez" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="<%= title %>" />
+    <meta property="og:description" content="Desarrollador Full Stack enfocado en aplicaciones web escalables, integración de APIs y bases de datos en la nube." />
+    <meta property="og:image" content="/images/perfil.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="<%= title %>" />
+    <meta name="twitter:description" content="Portafolio Profesional de Luis Rodríguez - Full Stack Developer." />
+    <meta name="twitter:image" content="/images/perfil.jpg" />
+
+    <!-- Google Fonts: Outfit & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS & Devicons -->
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    
+    <!-- Scripts -->
     <script src="/javascripts/menu.js" defer></script>
     <script src="/javascripts/modal.js" defer></script>
     <script src="/javascripts/theme.js" defer></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+    <!-- Icons & Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
     <link rel="manifest" href="/icon/site.webmanifest">
-    <link rel="mask-icon" href="/icon/safari-pinned-tab.svg" color="#5a67d8">
-    <meta name="msapplication-TileColor" content="#5a67d8">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="mask-icon" href="/icon/safari-pinned-tab.svg" color="#6366f1">
+    <meta name="msapplication-TileColor" content="#6366f1">
+    <meta id="meta-theme-color" name="theme-color" content="#f8fafc">
     <link rel="icon" type="image/x-icon" href="/icon/favicon.ico">
+
+    <!-- EmailJS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
-          (function () {
-            emailjs.init("MNseVKSK3D6tYwfwV");
-          })();;
+      (function () {
+        emailjs.init("MNseVKSK3D6tYwfwV");
+      })();
     </script>   
   </head>
   <body>
     <header class="main-header">
-      <div class="logo"><a href="/">Luis Rodriguez</a></div>
+      <div class="logo">
+        <a href="/">
+          <span class="logo-accent">&lt;/&gt;</span> Luis Rodríguez
+        </a>
+      </div>
 
-        <button id="theme-toggle" aria-label="Alternar Tema Oscuro" class="theme-toggle-btn"> 🌙 </button>
+      <div class="header-actions">
+        <button id="theme-toggle" aria-label="Alternar Tema Oscuro" class="theme-toggle-btn" title="Cambiar tema"> 🌙 </button>
+        <button class="menu-toggle" aria-label="Abrir menú de navegación" id="menu-toggle"> &#9776; </button>
+      </div>
 
-        <button class="menu-toggle" aria-label="Abrir menú" id="menu-toggle"> &#9776; </button>
-
-        <nav class="main-nav" id="main-nav">
-          <ul>
-            <li><a href="/" class="nav-link">Inicio</a></li>
-            <li><a href="/proyectos" class="nav-link">Proyectos</a></li>
-            <li><a href="/habilidades" class="nav-link">Habilidades</a></li>
-            <li><a href="/#contacto" class="nav-link">Contacto</a></li> 
-          </ul>
-        </nav>
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="/" class="nav-link">Inicio</a></li>
+          <li><a href="/#proyectos" class="nav-link">Proyectos</a></li>
+          <li><a href="/#habilidades" class="nav-link">Habilidades</a></li>
+          <li><a href="/#contacto" class="nav-link nav-btn-contact">Contacto</a></li> 
+        </ul>
+      </nav>
     </header>
     <main>

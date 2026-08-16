@@ -41,7 +41,7 @@ const data = {
       destacado: true,
     },
 
-    // 🛑 PROYECTO 2: Sensus AI (¡Ahora con código disponible!)
+    // 🛑 PROYECTO 2: Sensus AI
     {
       nombre: "Sensus AI - Generador de Imágenes",
       slug: "sensus-ai",
@@ -50,8 +50,8 @@ const data = {
       resumen:
         "Generador de imágenes impulsado por IA. Enfocado en proveer inspiración visual y herramientas creativas para diseñadores y creadores de contenido.",
       linkDemo: "https://sensus-ia.onrender.com",
-      linkRepo: "https://github.com/luigi1501/sensus-ia", //
-      enProceso: true, //
+      linkRepo: "https://github.com/luigi1501/sensus-ia",
+      enProceso: true,
       destacado: true,
     },
 
@@ -62,7 +62,7 @@ const data = {
       fecha: "2025",
       tecnologias: ["Node.js", "Express", "EJS", "MongoDB", "QR Code Scanner"],
       resumen:
-        "Sistema de control de asistencia generado por código QR para la empresa Alimentos del Alba. Escaneo en la misma página, control de entradas/salidas y historial detallado.",
+        "Sistema de control de asistencia generado por código QR para la empresa Alimentos del Alba. Escaneo en la misma página, control de entradas/salidas e historial detallado.",
       linkDemo: "https://alimentos-del-alba.onrender.com",
       linkRepo: "https://github.com/luigi1501/Alimentos-del-Alba",
       enProceso: false,

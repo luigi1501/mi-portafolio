@@ -3,40 +3,41 @@
 document.addEventListener('DOMContentLoaded', () => {
     const toggleBtn = document.getElementById('theme-toggle');
     const body = document.body;
+    const metaThemeColor = document.getElementById('meta-theme-color');
 
-    // 1. Cargar la preferencia del usuario desde el almacenamiento local
-    const currentTheme = localStorage.getItem('theme');
-    
     const applyTheme = (theme) => {
         if (theme === 'dark') {
             body.classList.add('dark-mode');
-            toggleBtn.textContent = '☀️'; // Icono de Sol para salir del modo oscuro
+            if (toggleBtn) toggleBtn.textContent = '☀️';
+            if (metaThemeColor) metaThemeColor.setAttribute('content', '#0f172a');
         } else {
             body.classList.remove('dark-mode');
-            toggleBtn.textContent = '🌙'; // Icono de Luna para entrar al modo oscuro
+            if (toggleBtn) toggleBtn.textContent = '🌙';
+            if (metaThemeColor) metaThemeColor.setAttribute('content', '#f8fafc');
         }
     };
 
-    // Aplicar el tema guardado o por defecto si no hay preferencia (claro)
+    const currentTheme = localStorage.getItem('theme');
+
     if (currentTheme) {
         applyTheme(currentTheme);
     } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        // Opción: Detectar la preferencia del sistema operativo si no hay preferencia guardada
         applyTheme('dark');
     } else {
         applyTheme('light');
     }
 
-    // 2. Listener para el botón de alternar
-    toggleBtn.addEventListener('click', () => {
-        const isDarkMode = body.classList.contains('dark-mode');
-        
-        if (isDarkMode) {
-            applyTheme('light');
-            localStorage.setItem('theme', 'light');
-        } else {
-            applyTheme('dark');
-            localStorage.setItem('theme', 'dark');
-        }
-    });
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            const isDarkMode = body.classList.contains('dark-mode');
+            
+            if (isDarkMode) {
+                applyTheme('light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                applyTheme('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    }
 });
