@@ -78,7 +78,7 @@ const data = {
       resumen:
         "Un sistema de blog simple enfocado en la arquitectura MVC y la seguridad.",
       linkRepo: "https://github.com/luigi1501/mi-blog-profesional",
-      linkDemo: "https://mi-blog-profesional-9xhitxxjf-luigi1501s-projects.vercel.app/",
+      linkDemo: "https://mi-blog-profesional.vercel.app/",
       enProceso: false,
       destacado: true,
     },
