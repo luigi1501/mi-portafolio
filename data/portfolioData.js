@@ -63,7 +63,7 @@ const data = {
       tecnologias: ["Node.js", "Express", "EJS", "MongoDB", "QR Code Scanner"],
       resumen:
         "Sistema de control de asistencia generado por código QR para la empresa Alimentos del Alba. Escaneo en la misma página, control de entradas/salidas e historial detallado.",
-      linkDemo: "https://alimentos-del-alba.onrender.com",
+      linkDemo: "https://alimentos-del-alba.vercel.app",
       linkRepo: "https://github.com/luigi1501/Alimentos-del-Alba",
       enProceso: false,
       destacado: true,
