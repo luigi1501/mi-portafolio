@@ -1,8 +1,12 @@
+const currentYear = new Date().getFullYear();
+const startYear = 2022;
+const añosCalculados = currentYear - startYear;
+
 const data = {
   // 👤 Datos de la sección "Sobre Mí" y experiencia
   experiencia: {
-    años: "4 años",
-    periodo: "2022 - 2026",
+    años: `${añosCalculados} años`,
+    periodo: `${startYear} - ${currentYear}`,
     descripcion:
       "Desarrollo Full Stack especializado en la creación de aplicaciones escalables, integración de bases de datos distribuidas en la nube y despliegue continuo (CI/CD).",
   },
