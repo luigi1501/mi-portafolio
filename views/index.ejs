@@ -1,16 +1,30 @@
 <%- include('./partials/header.ejs') %>
 
 <section class="hero-section" id="inicio">
+    <div class="hero-bg-glow"></div>
     <div class="hero-content">
-        <img src="/images/perfil.jpg" alt="Foto de Perfil de Luigi" class="profile-img"/>
+        <div class="status-pill">
+            <span class="status-dot"></span> Disponible para nuevos proyectos
+        </div>
+        <div class="avatar-wrapper">
+            <img src="/images/perfil.jpg" alt="Foto de Perfil de Luis Rodríguez" class="profile-img"/>
+        </div>
 
         <h1>¡Hola! Soy <span class="gradient-text">Luis Rodríguez</span>, Desarrollador Full Stack</h1>
         <p class="subtitle"><%= experiencia.descripcion %></p>
-        <span class="experience-badge">⚡ <%= experiencia.años %> de experiencia (<%= experiencia.periodo%>)</span>
+        <div class="hero-badges">
+            <span class="experience-badge">⚡ <%= experiencia.años %> de experiencia (<%= experiencia.periodo%>)</span>
+        </div>
 
         <div class="hero-buttons">
-            <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
-            <a href="#contacto" class="btn btn-secondary">Contactar Ahora</a>
+            <a href="#proyectos" class="btn btn-primary">
+                <span>Ver Proyectos</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#contacto" class="btn btn-secondary">
+                <span>Contactar Ahora</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            </a>
         </div>
     </div>
 </section>

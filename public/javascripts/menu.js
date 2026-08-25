@@ -1,21 +1,45 @@
 document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.getElementById("menu-toggle");
   const mainNav = document.getElementById("main-nav");
+  const menuOverlay = document.getElementById("menu-overlay");
   const navLinks = document.querySelectorAll(".nav-link");
+
+  const openMenu = () => {
+    mainNav.classList.add("open");
+    if (menuOverlay) menuOverlay.classList.add("open");
+    menuToggle.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeMenu = () => {
+    mainNav.classList.remove("open");
+    if (menuOverlay) menuOverlay.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  };
 
   if (menuToggle && mainNav) {
     menuToggle.addEventListener("click", () => {
-      // Alternar la clase 'open' para mostrar/ocultar el menú
-      mainNav.classList.toggle("open");
+      if (mainNav.classList.contains("open")) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
 
-    // Cerrar el menú al hacer clic en un enlace (importante para SPA)
+    if (menuOverlay) {
+      menuOverlay.addEventListener("click", closeMenu);
+    }
+
     navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        if (mainNav.classList.contains("open")) {
-          mainNav.classList.remove("open");
-        }
-      });
+      link.addEventListener("click", closeMenu);
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768 && mainNav.classList.contains("open")) {
+        closeMenu();
+      }
     });
   }
 });
+

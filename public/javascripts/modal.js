@@ -1,17 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Elementos base
     const modal = document.getElementById('project-modal');
     const closeBtn = document.querySelector('.close-btn');
-    const openModalBtns = document.querySelectorAll('.open-modal-btn'); 
+    const openModalBtns = document.querySelectorAll('.open-modal-btn');
+    const backdrop = document.querySelector('.modal-backdrop');
 
-    // Si el modal no existe o no hay botones, salimos y reportamos en consola.
     if (!modal || openModalBtns.length === 0) {
-        console.error("DEBUG: Modal o botones de apertura no encontrados. Verifique IDs/Clases en projects.ejs y la carga de modal.js.");
         return; 
     }
 
     const openModal = (proyecto) => {
-        // Elementos internos del Modal
         const modalTitle = document.getElementById('modal-title');
         const modalStatus = document.getElementById('modal-status');
         const modalTechTags = document.getElementById('modal-tech-tags');
@@ -19,11 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const linkDemo = document.getElementById('modal-link-demo');
         const linkRepo = document.getElementById('modal-link-repo');
 
-        // Llenar Contenido Básico
         modalTitle.textContent = proyecto.nombre;
-        modalDescription.textContent = proyecto.resumen;
+        modalDescription.textContent = proyecto.descripcionLarga || proyecto.resumen;
 
-        // Llenar Tags
         modalTechTags.innerHTML = '';
         proyecto.tecnologias.forEach(tech => {
             const span = document.createElement('span');
@@ -32,59 +27,60 @@ document.addEventListener('DOMContentLoaded', () => {
             modalTechTags.appendChild(span);
         });
 
-        // 3. Manejo del Estado "En Proceso" (Muestra el badge dentro del modal)
         if (proyecto.enProceso) {
-            modalStatus.textContent = 'Este proyecto está actualmente En Proceso.';
+            modalStatus.textContent = '⚡ Proyecto actualmente En Proceso de Desarrollo';
             modalStatus.className = 'status-in-progress';
-            modalStatus.style.display = 'block';
+            modalStatus.style.display = 'inline-block';
         } else {
-            modalStatus.style.display = 'none';
+            modalStatus.textContent = '✓ Proyecto Completado y Desplegado';
+            modalStatus.className = 'status-completed';
+            modalStatus.style.display = 'inline-block';
         }
 
-        // 4. Manejo del Link Demo
         if (proyecto.linkDemo && !proyecto.enProceso) {
             linkDemo.href = proyecto.linkDemo;
-            linkDemo.textContent = "Ver Demo";
-            linkDemo.style.display = 'inline-block';
-            linkDemo.classList.remove('btn-disabled'); // Aseguramos que no esté deshabilitado
+            const spanDemo = linkDemo.querySelector('span');
+            if (spanDemo) spanDemo.textContent = "Ver Demo en Vivo";
+            linkDemo.style.display = 'inline-flex';
+            linkDemo.classList.remove('btn-disabled');
             linkDemo.target = "_blank";
         } else {
-            // Oculta el botón de demo si no hay link o está en proceso
             linkDemo.style.display = 'none';
         }
         
-        // 5. Manejo del Link Repo
         if (proyecto.linkRepo) {
-            // Si hay link de GitHub (Alimentos del Alba)
             linkRepo.href = proyecto.linkRepo;
-            linkRepo.textContent = "Ver Código (GitHub)";
+            const spanRepo = linkRepo.querySelector('span');
+            if (spanRepo) spanRepo.textContent = "Ver Código Fuente";
             linkRepo.classList.remove('btn-disabled');
             linkRepo.style.cursor = 'pointer';
-            linkRepo.onclick = null; // Quita la función de alerta
+            linkRepo.onclick = null;
             linkRepo.target = "_blank";
         } else {
-            // Si NO hay link (es null, para Sensus, Inventario, Blog)
             linkRepo.href = '#'; 
-            linkRepo.textContent = "Repo en Proceso..."; 
-            linkRepo.classList.add('btn-disabled'); // Estilo deshabilitado
+            const spanRepo = linkRepo.querySelector('span');
+            if (spanRepo) spanRepo.textContent = "Repo Privado / En Proceso";
+            linkRepo.classList.add('btn-disabled');
             linkRepo.style.cursor = 'not-allowed';
             linkRepo.target = "_self";
-
-            // Función de alerta (el mensaje emergente)
-            linkRepo.onclick = () => {
-                alert("El código para este proyecto aún está en proceso de subida y organización. ¡Muy pronto estará disponible en GitHub!");
+            linkRepo.onclick = (e) => {
+                e.preventDefault();
+                alert("El código para este proyecto aún está en proceso de subida y organización.");
                 return false;
             };
         }
 
-        // 6. CLAVE: Mostrar el Modal
-        modal.style.display = 'block'; 
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
     };
 
-    // Listener para los botones de las tarjetas
+    const closeModal = () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
     openModalBtns.forEach(button => {
         button.addEventListener('click', (e) => {
-            // 🛑 Asegúrate de que el JSON.parse no esté fallando
             try {
                 const projectData = JSON.parse(e.currentTarget.getAttribute('data-proyecto'));
                 openModal(projectData);
@@ -94,15 +90,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Cierre del modal (Botón X)
-    closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-    });
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
 
-    // Cierre al hacer clic fuera
+    if (backdrop) {
+        backdrop.addEventListener('click', closeModal);
+    }
+
     window.addEventListener('click', (event) => {
         if (event.target === modal) {
-            modal.style.display = 'none';
+            closeModal();
         }
     });
-});
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+});

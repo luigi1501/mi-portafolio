@@ -45,19 +45,6 @@ const data = {
       destacado: true,
     },
 
-    // 🛑 PROYECTO 2: Sensus AI
-    {
-      nombre: "Sensus AI - Generador de Imágenes",
-      slug: "sensus-ai",
-      fecha: "2025 - Actualidad",
-      tecnologias: ["Node.js", "Express.js", "EJS", "HTML5", "CSS"],
-      resumen:
-        "Generador de imágenes impulsado por IA. Enfocado en proveer inspiración visual y herramientas creativas para diseñadores y creadores de contenido.",
-      linkDemo: "https://sensus-ia.onrender.com",
-      linkRepo: "https://github.com/luigi1501/sensus-ia",
-      enProceso: true,
-      destacado: true,
-    },
 
     // 🛑 PROYECTO 3: Sistema de Control de Asistencia QR
     {
