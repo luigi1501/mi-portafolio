@@ -44,6 +44,7 @@
                 required
                 placeholder="Cuéntame sobre tu proyecto o consulta..."
                 class="form-textarea"
+                style="resize: none !important;"
             ></textarea>
         </div>
         <button type="submit" id="submitButton" class="btn btn-primary">Enviar Mensaje</button>
@@ -56,6 +57,16 @@
         const form = document.getElementById('contactForm');
         const statusMessage = document.getElementById('statusMessage');
         const submitButton = document.getElementById('submitButton');
+        const messageInput = document.getElementById('message');
+
+        // Auto-expandir el campo de mensaje según el contenido introducido
+        if (messageInput) {
+            const autoExpand = () => {
+                messageInput.style.height = 'auto';
+                messageInput.style.height = Math.max(160, messageInput.scrollHeight) + 'px';
+            };
+            messageInput.addEventListener('input', autoExpand);
+        }
 
         form.addEventListener('submit', function (event) {
             event.preventDefault();

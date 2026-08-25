@@ -786,9 +786,15 @@ a {
 	background-color: var(--bg-card);
 }
 
-.form-textarea {
-	resize: vertical;
-	min-height: 140px;
+.form-textarea, textarea {
+	resize: none !important;
+	min-height: 160px;
+	overflow-y: hidden;
+	line-height: 1.6;
+}
+
+textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
+	display: none !important;
 }
 
 .contact-form .btn-primary {
