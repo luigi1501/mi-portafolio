@@ -1,9 +1,9 @@
 <section class="projects-archive" id="proyectos">
     <div class="section-header">
-        <span class="section-tag">Portafolio</span>
+        <span class="section-tag">Casos de Estudio</span>
         <h2 class="page-title">Proyectos Destacados</h2>
         <p class="subtitle">
-            Una selección de mis trabajos más relevantes en desarrollo Full Stack y arquitectura de software.
+            Cada proyecto es un caso de estudio enfocado en resolver problemas de negocio, tomar decisiones técnicas justificadas y generar impacto real.
         </p>
     </div>
 
@@ -13,6 +13,7 @@
             <div class="card-info">
                 <div class="project-header-meta">
                     <span class="project-year"><%= proyecto.fecha %></span>
+                    <span class="case-study-badge">💡 Caso de Estudio</span>
                     <% if (proyecto.enProceso) { %>
                         <span class="status-in-progress">⚡ En Proceso</span>
                     <% } else { %>
@@ -35,7 +36,7 @@
                     class="btn btn-secondary open-modal-btn"
                     data-proyecto='<%= JSON.stringify(proyecto) %>' 
                 >
-                    <span>Ver Detalles</span>
+                    <span>Ver Caso de Estudio</span>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M14 10l6-6M9 21H3v-6M10 14l-6 6"/></svg>
                 </button>
             </div>
@@ -49,10 +50,42 @@
     <div class="modal-content">
         <button class="close-btn" aria-label="Cerrar modal">&times;</button>
         <div class="modal-body">
-            <h2 id="modal-title"></h2>
-            <div id="modal-status" class="modal-status-badge"></div>
+            <div class="modal-header-container">
+                <span class="case-study-pill">Caso de Estudio Técnico</span>
+                <h2 id="modal-title"></h2>
+                <div id="modal-status" class="modal-status-badge"></div>
+            </div>
+            
             <div id="modal-tech-tags" class="tech-tags"></div>
-            <p id="modal-description" class="modal-description-text"></p>
+
+            <div id="modal-story-container" class="modal-story-container">
+                <div class="story-box story-problem">
+                    <div class="story-box-header">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                        <h4>El Desafío / Problema Real</h4>
+                    </div>
+                    <p id="modal-problem-text"></p>
+                </div>
+
+                <div class="story-box story-solution">
+                    <div class="story-box-header">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                        <h4>Arquitectura & Decisión Técnica</h4>
+                    </div>
+                    <p id="modal-solution-text"></p>
+                </div>
+
+                <div class="story-box story-impact">
+                    <div class="story-box-header">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                        <h4>Impacto & Aprendizajes</h4>
+                    </div>
+                    <p id="modal-impact-text"></p>
+                </div>
+            </div>
+
+            <p id="modal-description" class="modal-description-text" style="display: none;"></p>
+
             <div class="modal-actions">
                 <a id="modal-link-demo" class="btn btn-primary" target="_blank" style="display: none;">
                     <span>Ver Demo en Vivo</span>

@@ -13,11 +13,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalStatus = document.getElementById('modal-status');
         const modalTechTags = document.getElementById('modal-tech-tags');
         const modalDescription = document.getElementById('modal-description');
+        const storyContainer = document.getElementById('modal-story-container');
+        const problemText = document.getElementById('modal-problem-text');
+        const solutionText = document.getElementById('modal-solution-text');
+        const impactText = document.getElementById('modal-impact-text');
         const linkDemo = document.getElementById('modal-link-demo');
         const linkRepo = document.getElementById('modal-link-repo');
 
         modalTitle.textContent = proyecto.nombre;
-        modalDescription.textContent = proyecto.descripcionLarga || proyecto.resumen;
+
+        if (proyecto.problema && proyecto.solucionTecnica && proyecto.impacto) {
+            if (storyContainer) storyContainer.style.display = 'flex';
+            if (modalDescription) modalDescription.style.display = 'none';
+            if (problemText) problemText.textContent = proyecto.problema;
+            if (solutionText) solutionText.textContent = proyecto.solucionTecnica;
+            if (impactText) impactText.textContent = proyecto.impacto;
+        } else {
+            if (storyContainer) storyContainer.style.display = 'none';
+            if (modalDescription) {
+                modalDescription.textContent = proyecto.descripcionLarga || proyecto.resumen;
+                modalDescription.style.display = 'block';
+            }
+        }
 
         modalTechTags.innerHTML = '';
         proyecto.tecnologias.forEach(tech => {
