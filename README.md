@@ -1,4 +1,4 @@
-# 🚀 Portafolio Profesional — Luis Rodríguez
+# Portafolio Profesional — Luis Rodríguez
 
 ![Vercel Deployment](https://img.shields.io/badge/Vercel-Deployed-black?style=for-the-badge&logo=vercel)
 ![UI/UX Style](https://img.shields.io/badge/Design-Neomorphism%20%28Soft%20UI%29-6366f1?style=for-the-badge)
@@ -6,106 +6,101 @@
 ![Express](https://img.shields.io/badge/Express-4.x-000000?style=for-the-badge&logo=express)
 ![Frontend](https://img.shields.io/badge/Frontend-EJS%20%7C%20CSS3%20%7C%20Vanilla%20JS-8b5cf6?style=for-the-badge)
 
-Repositorio central del portafolio profesional de **Luis Rodríguez**, Desarrollador Full Stack. La plataforma ha sido diseñada bajo una arquitectura moderna, fluida y con un estilo de diseño **Neomórfico (Soft UI)**, animaciones de entrada vinculadas a la velocidad del scroll y un **Carrusel Horizontal Autónomo de Proyectos**.
+Plataforma web profesional y repositorio central de **Luis Rodríguez**, Desarrollador Full Stack. El sistema implementa una arquitectura orientada a rendimiento, interfaz basada en el paradigma **Neomórfico (Soft UI)**, animaciones dinámicas sincronizadas con la velocidad del scroll y un carrusel interactivo autónomo para la exhibición de casos de estudio técnicos.
 
-🌐 **Demo En Vivo**: [https://mi-portafolio-23xe.vercel.app/](https://mi-portafolio-23xe.vercel.app/)
-
----
-
-## 🎨 Especificaciones de Diseño UI/UX
-
-### 1. 💎 Estilo Neomórfico (Soft UI)
-- **Sombras Dobles Suaves (Outset)**: Relieve 3D en tarjetas, botones, contenedores, insignias y header mediante sombras dobles (luz superior izquierda y sombra inferior derecha).
-- **Sombras Internas (Inset)**: Profundidad en campos de texto (`input`, `textarea`), cajas de historia del modal, distintivos de arrastre y estados presionados (*pressed*) de botones.
-- **Armonía de Contrastes**: Fondos sintonizados (`#e6ecf5` en modo claro y `#181f2c` en modo oscuro) manteniendo accesibilidad WCAG AA.
-
-### 2. ⚡ Animaciones al Hacer Scroll (Velocity-Linked Reveal)
-- Módulo dinámico en [`scroll-velocity.js`](file:///c:/proyectos/mi-portafolio/public/javascripts/scroll-velocity.js) que calcula la velocidad instantánea del scroll ($v = \frac{|\Delta y|}{\Delta t}$).
-- **Scroll Rápido**: Revelados acelerados (~0.22s) y mayor desplazamiento vertical (55px).
-- **Scroll Suave**: Aparición progresiva y fluida (~0.65s) con animación de escala y elevación.
-
-### 3. 🎠 Carrusel Horizontal de Proyectos con Autoplay
-- Módulo en [`carousel.js`](file:///c:/proyectos/mi-portafolio/public/javascripts/carousel.js) que sustituye las grillas verticales por un slider horizontal autónomo.
-- **Desplazamiento Automático (Autoplay)**: Transición automática cada 3.5 segundos con pausa al pasar el puntero (*hover*) o tocar.
-- **Interacción Multidispositivo**: Navegación por arrastre (mouse drag), deslizamiento táctil (*touch swipe*), botones de flechas neomórficos e indicadores de puntos (*dots*).
-
-### 4. 📱 Vista Destacada Individual (1 Proyecto por Slide)
-- Se muestra **1 tarjeta de proyecto destacada a la vez** en pantallas de escritorio, tablets y móviles.
-- El carrusel se desplaza automáticamente uno a uno, brindando protagonismo completo a cada caso de estudio.
+**Demostración en Producción**: [https://mi-portafolio-23xe.vercel.app/](https://mi-portafolio-23xe.vercel.app/)
 
 ---
 
-## 🛠️ Stack Tecnológico & Herramientas
+## Arquitectura de Diseño y Experiencia de Usuario (UI/UX)
 
-- **Backend**: Node.js, Express.js (Arquitectura MVC).
-- **Frontend**: EJS (Template Engine), HTML5, CSS3 Neomórfico (Google Fonts *Outfit* & *Inter*), JavaScript Vanilla (Zero dependencias pesadas).
-- **Bases de Datos & Cloud**: TiDB Cloud (NewSQL), MySQL, MongoDB, PostgreSQL y SQLite.
-- **Formularios & Integraciones**: EmailJS (Envío de correos asíncrono desde el cliente).
-- **Despliegue & Hosting**: Vercel Serverless Functions (`@vercel/node`) con CDN Edge.
+### 1. Sistema Neomórfico (Soft UI)
+- **Relieve en Superficie (Outset)**: Implementación de pares de sombras vectoriales de alta precisión (resplandor superior-izquierdo y sombra profunda inferior-derecha) aplicadas a contenedores, tarjetas de proyectos, encabezado y controles interactivos.
+- **Profundidad de Inserción (Inset)**: Sombras internas configuradas para campos de entrada de formularios (`input`, `textarea`), contenedores de información secundaria del modal y estados activos (*pressed*) en botones.
+- **Gama de Color y Accesibilidad**: Paletas adaptadas para modo claro (`#e6ecf5`) y modo oscuro (`#181f2c`), cumpliendo con los estándares de contraste y legibilidad WCAG AA.
+
+### 2. Animaciones Adaptativas de Scroll (Velocity-Linked Reveal)
+- **Cálculo de Velocidad**: Motor desacoplado en `scroll-velocity.js` que determina la velocidad instantánea de desplazamiento ($v = \frac{|\Delta y|}{\Delta t}$) en tiempo real.
+- **Aceleración Dinámica**: Ajuste automático de parámetros de transición CSS (duración, distancia de elevación y escala) en función de la rapidez de navegación del usuario.
+
+### 3. Carrusel Horizontal de Proyectos con Autoplay
+- **Desplazamiento Autónomo**: Ciclo automático configurable (3.5 segundos por diapositiva) con suspensión inteligente ante interacción o evento *hover*.
+- **Control Multidispositivo**: Soporte para gestos táctiles (*touch swipe*), arrastre con cursor (*mouse drag*), botones de navegación lateral e indicadores de paginación.
+- **Exhibición Destacada**: Formato de visualización individual (1 proyecto por diapositiva) para máxima atención a los detalles técnicos de cada caso de estudio.
 
 ---
 
-## 📂 Estructura del Repositorio
+## Stack Tecnológico e Infraestructura
+
+- **Backend**: Node.js, Express.js (Patrón Arquitectónico MVC).
+- **Frontend**: EJS (Embedded JavaScript Templates), HTML5 Semántico, CSS3 Neomórfico, JavaScript Vanilla (sin dependencias pesadas).
+- **Bases de Datos & Almacenamiento**: TiDB Cloud (NewSQL), MySQL, MongoDB, PostgreSQL, SQLite.
+- **Servicios de Integración**: EmailJS (Procesamiento asíncrono de solicitudes de contacto).
+- **Despliegue e Infraestructura Cloud**: Vercel Serverless Functions (`@vercel/node`) respaldado por CDN Edge.
+
+---
+
+## Estructura del Repositorio
 
 ```text
 mi-portafolio/
 ├── api/
-│   └── index.js            # Entry Point para Vercel Serverless Function
+│   └── index.js            # Punto de entrada para Vercel Serverless Function
 ├── bin/
-│   └── www                 # Script de inicio HTTP para entorno local
+│   └── www                 # Script de inicialización del servidor HTTP local
 ├── data/
-│   └── portfolioData.js    # Información centralizada de experiencia, habilidades y proyectos
+│   └── portfolioData.js    # Data de experiencia, proyectos y competencias
 ├── public/
 │   ├── favicon.ico
-│   ├── icon/               # Favicons y manifiesto web
-│   ├── images/             # Imágenes y foto de perfil
-│   ├── javascripts/        # Lógica de cliente
-│   │   ├── carousel.js     # Carrusel horizontal con autoplay, drag y touch
-│   │   ├── menu.js         # Menú hamburguesa responsivo
-│   │   ├── modal.js        # Manejo de modales para casos de estudio
-│   │   ├── scroll-velocity.js # Engine de animaciones según velocidad de scroll
-│   │   └── theme.js        # Alternador de modo claro/oscuro neomórfico
+│   ├── icon/               # Activos de icono y manifiesto web
+│   ├── images/             # Recurso gráfico de perfil
+│   ├── javascripts/        # Módulos de lógica cliente
+│   │   ├── carousel.js     # Controlador del carrusel horizontal (drag, swipe, autoplay)
+│   │   ├── menu.js         # Gestión de navegación responsiva
+│   │   ├── modal.js        # Lógica de modales para casos de estudio
+│   │   ├── scroll-velocity.js # Motor de animaciones según velocidad de scroll
+│   │   └── theme.js        # Gestión de persistencia de modo claro / oscuro
 │   └── stylesheets/
-│       └── style.css       # Sistema de diseño Neomórfico global (Soft UI)
+│       └── style.css       # Hoja de estilos global y sistema Neomórfico
 ├── routes/
-│   └── index.js            # Rutas Express (Home & Detalle de Proyectos)
+│   └── index.js            # Enrutamiento principal del sistema
 ├── views/
 │   ├── index.ejs           # Vista principal
-│   ├── partials/           # Header y Footer neomórficos
-│   └── sections/           # Secciones (skills, projects carrusel, contact, project-detail)
-├── app.js                  # Configuración principal de Express
-├── package.json            # Dependencias y scripts
+│   ├── partials/           # Componentes de encabezado y pie de página
+│   └── sections/           # Vistas de módulos (skills, projects, contact, project-detail)
+├── app.js                  # Configuración y middlewares de Express
+├── package.json            # Manifiesto de dependencias y scripts
 └── vercel.json             # Configuración de despliegue en Vercel
 ```
 
 ---
 
-## 📦 Instalación y Ejecución Local
+## Despliegue y Ejecución en Entorno Local
 
-1. **Clonar el repositorio:**
+1. **Clonación del Repositorio:**
    ```bash
    git clone https://github.com/luigi1501/mi-portafolio.git
    cd mi-portafolio
    ```
 
-2. **Instalar dependencias:**
+2. **Instalación de Dependencias:**
    ```bash
    npm install
    ```
 
-3. **Ejecutar en modo desarrollo:**
+3. **Ejecución en Entorno de Desarrollo:**
    ```bash
    npm run dev
    ```
-   Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
+   Acceder a `http://localhost:3000` en el navegador web.
 
 ---
 
-## 🤝 Contacto y Redes
+## Información de Contacto y Perfiles Profesionales
 
-- **Sitio Web / Portafolio**: [mi-portafolio-23xe.vercel.app](https://mi-portafolio-23xe.vercel.app/)
+- **Plataforma Web**: [mi-portafolio-23xe.vercel.app](https://mi-portafolio-23xe.vercel.app/)
 - **LinkedIn**: [linkedin.com/in/luis-rodriguez-9b605a3b5](https://www.linkedin.com/in/luis-rodriguez-9b605a3b5)
 - **GitHub**: [github.com/luigi1501](https://github.com/luigi1501)
-- **Correo**: luisr150104@gmail.com
+- **Correo Electrónico**: luisr150104@gmail.com
 - **Telegram**: [@luigix15](https://t.me/luigix15)
 - **WhatsApp**: [+58 412 452 3599](https://wa.me/+584124523599)
