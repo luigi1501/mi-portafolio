@@ -7,41 +7,64 @@
         </p>
     </div>
 
-    <div class="projects-grid">
-        <% todosLosProyectos.forEach(proyecto => { %>
-        <article class="project-card">
-            <div class="card-info">
-                <div class="project-header-meta">
-                    <span class="project-year"><%= proyecto.fecha %></span>
-                    <span class="case-study-badge">💡 Caso de Estudio</span>
-                    <% if (proyecto.enProceso) { %>
-                        <span class="status-in-progress">⚡ En Proceso</span>
-                    <% } else { %>
-                        <span class="status-completed">✓ Completado</span>
-                    <% } %>
-                </div>
+    <div class="carousel-wrapper">
+        <div class="carousel-drag-hint">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8L22 12L18 16M6 8L2 12L6 16M2 12H22"/></svg>
+            <span>Desliza o arrastra para ver más proyectos</span>
+        </div>
 
-                <h3><%= proyecto.nombre %></h3>
-                <p class="summary"><%= proyecto.resumen %></p>
+        <div class="carousel-viewport" id="projects-carousel-viewport" tabindex="0" aria-label="Carrusel de Proyectos">
+            <div class="carousel-track" id="projects-carousel-track">
+                <% todosLosProyectos.forEach(proyecto => { %>
+                <div class="carousel-slide">
+                    <article class="project-card">
+                        <div class="card-info">
+                            <div class="project-header-meta">
+                                <span class="project-year"><%= proyecto.fecha %></span>
+                                <span class="case-study-badge">💡 Caso de Estudio</span>
+                                <% if (proyecto.enProceso) { %>
+                                    <span class="status-in-progress">⚡ En Proceso</span>
+                                <% } else { %>
+                                    <span class="status-completed">✓ Completado</span>
+                                <% } %>
+                            </div>
 
-                <div class="tech-tags">
-                    <% proyecto.tecnologias.forEach(tech => { %>
-                    <span class="tag"><%= tech %></span>
-                    <% }) %>
+                            <h3><%= proyecto.nombre %></h3>
+                            <p class="summary"><%= proyecto.resumen %></p>
+
+                            <div class="tech-tags">
+                                <% proyecto.tecnologias.forEach(tech => { %>
+                                <span class="tag"><%= tech %></span>
+                                <% }) %>
+                            </div>
+                        </div>
+
+                        <div class="card-actions">
+                            <button 
+                                class="btn btn-secondary open-modal-btn"
+                                data-proyecto='<%= JSON.stringify(proyecto) %>' 
+                            >
+                                <span>Ver Caso de Estudio</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M14 10l6-6M9 21H3v-6M10 14l-6 6"/></svg>
+                            </button>
+                        </div>
+                    </article>
                 </div>
+                <% }) %>
             </div>
+        </div>
 
-            <div class="card-actions">
-                <button 
-                    class="btn btn-secondary open-modal-btn"
-                    data-proyecto='<%= JSON.stringify(proyecto) %>' 
-                >
-                    <span>Ver Caso de Estudio</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M14 10l6-6M9 21H3v-6M10 14l-6 6"/></svg>
+        <div class="carousel-controls">
+            <div class="carousel-arrows">
+                <button id="carousel-prev" class="carousel-arrow" aria-label="Proyecto anterior">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <button id="carousel-next" class="carousel-arrow" aria-label="Siguiente proyecto">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
                 </button>
             </div>
-        </article>
-        <% }) %>
+            <div id="carousel-dots" class="carousel-dots"></div>
+        </div>
     </div>
 </section>
 

@@ -1,69 +1,85 @@
 /* -----------------------------------------------------------
-   1. VARIABLES, SISTEMA DE DISEÑO Y TEMAS
+   1. VARIABLES, SISTEMA DE DISEÑO NEOMÓRFICO Y TEMAS (SOFT UI)
    ----------------------------------------------------------- */
 :root {
 	/* Tipografía */
 	--font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 	--font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-	/* Paleta de Color (Modo Claro) */
+	/* Paleta de Color (Modo Claro Neomórfico) */
 	--primary: #4f46e5;
 	--primary-hover: #4338ca;
-	--primary-light: rgba(79, 70, 229, 0.08);
+	--primary-light: rgba(79, 70, 229, 0.12);
 	--accent: #8b5cf6;
-	--accent-glow: rgba(139, 92, 246, 0.3);
+	--accent-glow: rgba(139, 92, 246, 0.35);
 
-	--bg-body: #f8fafc;
-	--bg-card: #ffffff;
-	--bg-header: rgba(255, 255, 255, 0.82);
-	--bg-tag: #f1f5f9;
-	--bg-tag-hover: #e2e8f0;
+	--bg-body: #e6ecf5;
+	--bg-card: #e6ecf5;
+	--bg-header: rgba(230, 236, 245, 0.88);
+	--bg-tag: #e6ecf5;
+	--bg-tag-hover: #dbe2ef;
 
 	--text-title: #0f172a;
 	--text-body: #334155;
 	--text-muted: #64748b;
-	--border-color: #e2e8f0;
-	--border-hover: #cbd5e1;
+	--border-color: rgba(255, 255, 255, 0.7);
+	--border-hover: rgba(255, 255, 255, 0.9);
 
-	/* Sombras y Elevaciones */
-	--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-	--shadow-md: 0 4px 16px -2px rgba(0, 0, 0, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
-	--shadow-lg: 0 16px 32px -8px rgba(79, 70, 229, 0.12), 0 8px 16px -4px rgba(0, 0, 0, 0.04);
-	--shadow-glow: 0 0 30px rgba(99, 102, 241, 0.25);
+	/* Sombras Neomórficas (Light Mode) */
+	--neo-shadow-outset: 6px 6px 14px #c3c9d4, -6px -6px 14px #ffffff;
+	--neo-shadow-outset-hover: 9px 9px 18px #bcc2cd, -9px -9px 18px #ffffff;
+	--neo-shadow-inset: inset 4px 4px 8px #c3c9d4, inset -4px -4px 8px #ffffff;
+	--neo-shadow-pressed: inset 3px 3px 6px #c3c9d4, inset -3px -3px 6px #ffffff;
+	--neo-border: 1px solid rgba(255, 255, 255, 0.75);
 
-	--radius-sm: 8px;
-	--radius-md: 16px;
-	--radius-lg: 24px;
+	--shadow-sm: var(--neo-shadow-outset);
+	--shadow-md: var(--neo-shadow-outset-hover);
+	--shadow-lg: 12px 12px 24px #b8bfcc, -12px -12px 24px #ffffff;
+	--shadow-glow: 0 0 30px rgba(99, 102, 241, 0.3);
+
+	--radius-sm: 12px;
+	--radius-md: 20px;
+	--radius-lg: 28px;
 	--radius-full: 9999px;
 
 	--transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 	--transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 	--transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+	/* Responsive Slides count for Carousel */
+	--visible-slides: 3;
 }
 
-/* Modo Oscuro */
+/* Modo Oscuro Neomórfico */
 body.dark-mode {
 	--primary: #6366f1;
 	--primary-hover: #818cf8;
-	--primary-light: rgba(99, 102, 241, 0.15);
+	--primary-light: rgba(99, 102, 241, 0.18);
 	--accent: #a78bfa;
-	--accent-glow: rgba(167, 139, 250, 0.3);
+	--accent-glow: rgba(167, 139, 250, 0.35);
 
-	--bg-body: #090d16;
-	--bg-card: #131b2e;
-	--bg-header: rgba(15, 23, 42, 0.85);
-	--bg-tag: #1e293b;
-	--bg-tag-hover: #334155;
+	--bg-body: #181f2c;
+	--bg-card: #181f2c;
+	--bg-header: rgba(24, 31, 44, 0.88);
+	--bg-tag: #181f2c;
+	--bg-tag-hover: #1f2838;
 
 	--text-title: #f8fafc;
 	--text-body: #cbd5e1;
 	--text-muted: #94a3b8;
-	--border-color: #1e293b;
-	--border-hover: #334155;
+	--border-color: rgba(255, 255, 255, 0.05);
+	--border-hover: rgba(255, 255, 255, 0.1);
 
-	--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
-	--shadow-md: 0 6px 20px rgba(0, 0, 0, 0.45);
-	--shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.6);
+	/* Sombras Neomórficas (Dark Mode) */
+	--neo-shadow-outset: 6px 6px 14px #10151e, -6px -6px 14px #20293a;
+	--neo-shadow-outset-hover: 9px 9px 18px #0d1119, -9px -9px 18px #232d3f;
+	--neo-shadow-inset: inset 4px 4px 8px #10151e, inset -4px -4px 8px #20293a;
+	--neo-shadow-pressed: inset 3px 3px 6px #10151e, inset -3px -3px 6px #20293a;
+	--neo-border: 1px solid rgba(255, 255, 255, 0.06);
+
+	--shadow-sm: var(--neo-shadow-outset);
+	--shadow-md: var(--neo-shadow-outset-hover);
+	--shadow-lg: 12px 12px 24px #0b0e14, -12px -12px 24px #253044;
 	--shadow-glow: 0 0 35px rgba(99, 102, 241, 0.35);
 }
 
@@ -91,7 +107,7 @@ body {
 	position: relative;
 }
 
-/* Fondo decorativo con gradiente ambiental */
+/* Fondo decorativo neomórfico con resplandor suave */
 body::before {
 	content: '';
 	position: fixed;
@@ -104,7 +120,7 @@ body::before {
 	background: radial-gradient(circle, var(--accent-glow) 0%, rgba(0,0,0,0) 70%);
 	z-index: -1;
 	pointer-events: none;
-	opacity: 0.6;
+	opacity: 0.5;
 }
 
 main {
@@ -139,7 +155,7 @@ a {
 	-webkit-text-fill-color: transparent;
 }
 
-/* Tags de sección genéricos */
+/* Tags de sección neomórficos */
 .section-tag {
 	display: inline-block;
 	font-size: 0.8rem;
@@ -147,15 +163,16 @@ a {
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	color: var(--primary);
-	background: var(--primary-light);
-	padding: 4px 12px;
+	background: var(--bg-card);
+	padding: 6px 16px;
 	border-radius: var(--radius-full);
 	margin-bottom: 12px;
-	border: 1px solid rgba(99, 102, 241, 0.2);
+	box-shadow: var(--neo-shadow-outset);
+	border: var(--neo-border);
 }
 
 /* -----------------------------------------------------------
-   2. HEADER & NAVEGACIÓN RESPONSIVA
+   2. HEADER & NAVEGACIÓN RESPONSIVA NEOMÓRFICA
    ----------------------------------------------------------- */
 .main-header {
 	background-color: var(--bg-header);
@@ -165,10 +182,14 @@ a {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	box-shadow: var(--shadow-sm);
-	border-bottom: 1px solid var(--border-color);
+	box-shadow: var(--neo-shadow-outset);
+	border: var(--neo-border);
+	border-radius: var(--radius-md);
+	margin: 12px auto 0 auto;
+	max-width: 1140px;
+	width: calc(100% - 32px);
 	position: sticky;
-	top: 0;
+	top: 12px;
 	z-index: 1000;
 	transition: var(--transition);
 }
@@ -196,7 +217,7 @@ a {
 .header-actions {
 	display: flex;
 	align-items: center;
-	gap: 12px;
+	gap: 14px;
 	z-index: 1001;
 }
 
@@ -211,41 +232,49 @@ a {
 	color: var(--text-body);
 	font-weight: 600;
 	font-size: 0.95rem;
-	padding: 8px 14px;
+	padding: 8px 16px;
 	border-radius: var(--radius-sm);
 	transition: var(--transition);
 }
 
 .main-nav a.nav-link:hover {
 	color: var(--primary);
-	background-color: var(--primary-light);
+	box-shadow: var(--neo-shadow-outset);
 }
 
 .main-nav a.nav-btn-contact {
-	background-color: var(--primary);
-	color: #ffffff !important;
-	padding: 8px 20px;
+	background: var(--bg-card);
+	color: var(--primary) !important;
+	padding: 8px 22px;
 	border-radius: var(--radius-full);
-	box-shadow: var(--shadow-sm);
+	box-shadow: var(--neo-shadow-outset);
+	border: var(--neo-border);
 	display: inline-flex;
 	align-items: center;
 	gap: 6px;
+	font-weight: 700;
 }
 
 .main-nav a.nav-btn-contact:hover {
-	background-color: var(--primary-hover);
+	box-shadow: var(--neo-shadow-outset-hover);
 	transform: translateY(-2px);
-	box-shadow: var(--shadow-md);
+	color: var(--primary-hover) !important;
+}
+
+.main-nav a.nav-btn-contact:active {
+	box-shadow: var(--neo-shadow-pressed);
+	transform: translateY(1px);
 }
 
 .theme-toggle-btn {
-	background: var(--bg-tag);
-	border: 1px solid var(--border-color);
+	background: var(--bg-card);
+	border: var(--neo-border);
+	box-shadow: var(--neo-shadow-outset);
 	font-size: 1.1rem;
 	cursor: pointer;
 	color: var(--text-title);
-	width: 40px;
-	height: 40px;
+	width: 42px;
+	height: 42px;
 	border-radius: var(--radius-full);
 	transition: var(--transition-bounce);
 	display: flex;
@@ -254,20 +283,25 @@ a {
 }
 
 .theme-toggle-btn:hover {
-	transform: scale(1.1) rotate(15deg);
-	border-color: var(--primary);
-	box-shadow: var(--shadow-sm);
+	transform: scale(1.08) rotate(15deg);
+	box-shadow: var(--neo-shadow-outset-hover);
+}
+
+.theme-toggle-btn:active {
+	box-shadow: var(--neo-shadow-pressed);
+	transform: scale(0.95);
 }
 
 .menu-toggle {
 	display: none;
-	background: var(--bg-tag);
-	border: 1px solid var(--border-color);
+	background: var(--bg-card);
+	border: var(--neo-border);
+	box-shadow: var(--neo-shadow-outset);
 	border-radius: var(--radius-sm);
 	cursor: pointer;
-	width: 40px;
-	height: 40px;
-	padding: 9px 8px;
+	width: 42px;
+	height: 42px;
+	padding: 10px 9px;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
@@ -276,8 +310,11 @@ a {
 }
 
 .menu-toggle:hover {
-	background: var(--bg-tag-hover);
-	border-color: var(--primary);
+	box-shadow: var(--neo-shadow-outset-hover);
+}
+
+.menu-toggle:active, .menu-toggle.active {
+	box-shadow: var(--neo-shadow-pressed);
 }
 
 .hamburger-bar {
@@ -289,7 +326,6 @@ a {
 	transform-origin: center;
 }
 
-/* Animación a la forma 'X' cuando .active */
 .menu-toggle.active .hamburger-bar:nth-child(1) {
 	transform: translateY(9px) rotate(45deg);
 	background-color: var(--primary);
@@ -305,14 +341,13 @@ a {
 	background-color: var(--primary);
 }
 
-/* Overlay para menú móvil */
 .menu-overlay {
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.45);
 	backdrop-filter: blur(4px);
 	z-index: 998;
 	opacity: 0;
@@ -326,7 +361,7 @@ a {
 }
 
 /* -----------------------------------------------------------
-   3. BOTONES & COMPONENTES ACCESIBLES
+   3. BOTONES NEOMÓRFICOS & COMPONENTES
    ----------------------------------------------------------- */
 .btn {
 	padding: 12px 24px;
@@ -339,7 +374,7 @@ a {
 	justify-content: center;
 	gap: 8px;
 	cursor: pointer;
-	border: none;
+	border: var(--neo-border);
 	transition: var(--transition);
 	text-decoration: none;
 	min-height: 46px;
@@ -349,27 +384,38 @@ a {
 .btn-primary {
 	background: linear-gradient(135deg, var(--primary), var(--primary-hover));
 	color: #ffffff;
-	box-shadow: var(--shadow-md);
+	box-shadow: var(--neo-shadow-outset);
+	border: none;
 }
 
 .btn-primary:hover {
 	transform: translateY(-2px);
-	box-shadow: var(--shadow-lg);
+	box-shadow: var(--neo-shadow-outset-hover), 0 0 18px var(--accent-glow);
 	color: #ffffff;
+}
+
+.btn-primary:active, .btn-primary.active {
+	box-shadow: var(--neo-shadow-pressed);
+	transform: translateY(1px);
 }
 
 .btn-secondary {
 	background-color: var(--bg-card);
 	color: var(--text-title);
-	border: 1.5px solid var(--border-color);
-	box-shadow: var(--shadow-sm);
+	border: var(--neo-border);
+	box-shadow: var(--neo-shadow-outset);
 }
 
 .btn-secondary:hover {
-	border-color: var(--primary);
 	color: var(--primary);
-	background-color: var(--primary-light);
+	box-shadow: var(--neo-shadow-outset-hover);
 	transform: translateY(-2px);
+}
+
+.btn-secondary:active, .btn-secondary.active {
+	box-shadow: var(--neo-shadow-pressed);
+	color: var(--primary);
+	transform: translateY(1px);
 }
 
 .btn-disabled {
@@ -379,7 +425,7 @@ a {
 }
 
 /* -----------------------------------------------------------
-   4. HERO SECTION
+   4. HERO SECTION NEOMÓRFICA
    ----------------------------------------------------------- */
 .hero-section {
 	padding: 48px 0 64px 0;
@@ -396,15 +442,15 @@ a {
 	display: inline-flex;
 	align-items: center;
 	gap: 8px;
-	padding: 6px 16px;
+	padding: 8px 18px;
 	background-color: var(--bg-card);
-	border: 1px solid var(--border-color);
+	border: var(--neo-border);
 	border-radius: var(--radius-full);
 	font-size: 0.85rem;
 	font-weight: 600;
 	color: var(--text-title);
 	margin-bottom: 24px;
-	box-shadow: var(--shadow-sm);
+	box-shadow: var(--neo-shadow-outset);
 }
 
 .status-dot {
@@ -424,35 +470,26 @@ a {
 
 .avatar-wrapper {
 	position: relative;
-	width: 140px;
-	height: 140px;
+	width: 144px;
+	height: 144px;
 	margin: 0 auto 28px auto;
-}
-
-.avatar-wrapper::before {
-	content: '';
-	position: absolute;
-	inset: -4px;
 	border-radius: 50%;
-	background: linear-gradient(135deg, var(--primary), var(--accent));
-	z-index: 0;
-	opacity: 0.85;
-	filter: blur(6px);
+	padding: 6px;
+	background-color: var(--bg-card);
+	box-shadow: var(--neo-shadow-outset);
 }
 
 .profile-img {
-	position: relative;
-	z-index: 1;
 	width: 100%;
 	height: 100%;
 	border-radius: 50%;
 	object-fit: cover;
-	border: 3px solid var(--bg-card);
+	box-shadow: var(--neo-shadow-inset);
 	transition: var(--transition-bounce);
 }
 
 .avatar-wrapper:hover .profile-img {
-	transform: scale(1.05);
+	transform: scale(1.04);
 }
 
 .hero-section h1 {
@@ -477,13 +514,14 @@ a {
 
 .experience-badge {
 	display: inline-block;
-	padding: 6px 18px;
-	background: var(--primary-light);
+	padding: 8px 20px;
+	background: var(--bg-card);
 	color: var(--primary);
 	border-radius: var(--radius-full);
 	font-weight: 700;
 	font-size: 0.88rem;
-	border: 1px solid rgba(99, 102, 241, 0.2);
+	box-shadow: var(--neo-shadow-outset);
+	border: var(--neo-border);
 }
 
 .hero-buttons {
@@ -495,7 +533,7 @@ a {
 }
 
 /* -----------------------------------------------------------
-   5. SECCIÓN DE HABILIDADES TÉCNICAS
+   5. SECCIÓN DE HABILIDADES TÉCNICAS NEOMÓRFICA
    ----------------------------------------------------------- */
 .skills-section {
 	margin: 64px 0;
@@ -521,17 +559,17 @@ a {
 
 .skills-summary-box {
 	background-color: var(--bg-card);
-	border: 1px solid var(--border-color);
-	border-left: 4px solid var(--primary);
+	border: var(--neo-border);
+	border-left: 5px solid var(--primary);
 	border-radius: var(--radius-md);
 	padding: 28px 32px;
 	margin-bottom: 36px;
-	box-shadow: var(--shadow-sm);
+	box-shadow: var(--neo-shadow-outset);
 	transition: var(--transition);
 }
 
 .skills-summary-box:hover {
-	box-shadow: var(--shadow-md);
+	box-shadow: var(--neo-shadow-outset-hover);
 }
 
 .summary-paragraph {
@@ -552,10 +590,10 @@ a {
 
 .skill-category-block {
 	background-color: var(--bg-card);
-	border: 1px solid var(--border-color);
+	border: var(--neo-border);
 	border-radius: var(--radius-md);
 	padding: 28px;
-	box-shadow: var(--shadow-sm);
+	box-shadow: var(--neo-shadow-outset);
 	transition: var(--transition);
 	display: flex;
 	flex-direction: column;
@@ -563,8 +601,7 @@ a {
 
 .skill-category-block:hover {
 	transform: translateY(-4px);
-	box-shadow: var(--shadow-md);
-	border-color: var(--border-hover);
+	box-shadow: var(--neo-shadow-outset-hover);
 }
 
 .skill-category-block h3 {
@@ -587,19 +624,20 @@ a {
 	display: inline-flex;
 	align-items: center;
 	gap: 8px;
-	background-color: var(--bg-tag);
+	background-color: var(--bg-card);
 	color: var(--text-title);
-	padding: 8px 14px;
+	padding: 8px 16px;
 	border-radius: var(--radius-sm);
 	font-size: 0.85rem;
 	font-weight: 600;
-	border: 1px solid var(--border-color);
+	box-shadow: var(--neo-shadow-outset);
+	border: var(--neo-border);
 	transition: var(--transition);
 }
 
 .tag:hover, .skill-tag:hover {
-	border-color: var(--primary);
-	background-color: var(--bg-tag-hover);
+	box-shadow: var(--neo-shadow-outset-hover);
+	color: var(--primary);
 	transform: translateY(-2px);
 }
 
@@ -608,31 +646,73 @@ a {
 }
 
 /* -----------------------------------------------------------
-   6. SECCIÓN DE PROYECTOS Y TARJETAS
+   6. CARRUSEL HORIZONTAL DE PROYECTOS (NEOMÓRFICO)
    ----------------------------------------------------------- */
 .projects-archive {
 	margin: 64px 0;
 }
 
-.projects-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-	gap: 28px;
-	margin-top: 36px;
+.carousel-wrapper {
+	position: relative;
+	width: 100%;
+	margin-top: 24px;
+}
+
+.carousel-drag-hint {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 0.82rem;
+	font-weight: 600;
+	color: var(--text-muted);
+	margin-bottom: 16px;
+	background: var(--bg-card);
+	padding: 8px 16px;
+	border-radius: var(--radius-full);
+	box-shadow: var(--neo-shadow-inset);
+	border: var(--neo-border);
+}
+
+.carousel-viewport {
+	overflow: hidden;
+	width: 100%;
+	border-radius: var(--radius-md);
+	padding: 16px 8px;
+	cursor: grab;
+	user-select: none;
+	touch-action: pan-y;
+}
+
+.carousel-viewport.is-dragging {
+	cursor: grabbing;
+}
+
+.carousel-track {
+	display: flex;
+	gap: 24px;
+	transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+	will-change: transform;
+}
+
+.carousel-slide {
+	flex: 0 0 calc((100% - (24px * (var(--visible-slides, 3) - 1))) / var(--visible-slides, 3));
+	min-width: 0;
+	display: flex;
 }
 
 .project-card {
 	background-color: var(--bg-card);
-	border: 1px solid var(--border-color);
+	border: var(--neo-border);
 	border-radius: var(--radius-md);
 	padding: 28px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	box-shadow: var(--shadow-sm);
+	box-shadow: var(--neo-shadow-outset);
 	transition: var(--transition);
 	position: relative;
 	overflow: hidden;
+	width: 100%;
 }
 
 .project-card::before {
@@ -648,9 +728,8 @@ a {
 }
 
 .project-card:hover {
-	transform: translateY(-6px);
-	box-shadow: var(--shadow-lg);
-	border-color: var(--border-hover);
+	transform: translateY(-5px);
+	box-shadow: var(--neo-shadow-outset-hover);
 }
 
 .project-card:hover::before {
@@ -675,23 +754,25 @@ a {
 }
 
 .status-in-progress {
-	background-color: rgba(245, 158, 11, 0.12);
+	background-color: var(--bg-card);
 	color: #d97706;
 	padding: 4px 12px;
 	border-radius: var(--radius-full);
 	font-size: 0.78rem;
 	font-weight: 700;
-	border: 1px solid rgba(245, 158, 11, 0.3);
+	box-shadow: var(--neo-shadow-outset);
+	border: var(--neo-border);
 }
 
 .status-completed {
-	background-color: rgba(16, 185, 129, 0.12);
+	background-color: var(--bg-card);
 	color: #059669;
 	padding: 4px 12px;
 	border-radius: var(--radius-full);
 	font-size: 0.78rem;
 	font-weight: 700;
-	border: 1px solid rgba(16, 185, 129, 0.3);
+	box-shadow: var(--neo-shadow-outset);
+	border: var(--neo-border);
 }
 
 .project-card h3 {
@@ -723,8 +804,78 @@ a {
 	width: 100%;
 }
 
+/* Controls del Carrusel */
+.carousel-controls {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 24px;
+	padding: 0 8px;
+}
+
+.carousel-arrows {
+	display: flex;
+	gap: 14px;
+}
+
+.carousel-arrow {
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	background: var(--bg-card);
+	border: var(--neo-border);
+	box-shadow: var(--neo-shadow-outset);
+	color: var(--text-title);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: var(--transition-bounce);
+}
+
+.carousel-arrow:hover:not(:disabled) {
+	transform: scale(1.08);
+	box-shadow: var(--neo-shadow-outset-hover);
+	color: var(--primary);
+}
+
+.carousel-arrow:active:not(:disabled) {
+	box-shadow: var(--neo-shadow-pressed);
+	transform: scale(0.95);
+}
+
+.carousel-arrow:disabled {
+	opacity: 0.35;
+	cursor: not-allowed;
+	box-shadow: var(--neo-shadow-inset);
+}
+
+.carousel-dots {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.carousel-dot {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: var(--bg-card);
+	box-shadow: var(--neo-shadow-inset);
+	border: none;
+	cursor: pointer;
+	transition: var(--transition);
+}
+
+.carousel-dot.active {
+	width: 28px;
+	border-radius: 12px;
+	background: linear-gradient(135deg, var(--primary), var(--accent));
+	box-shadow: var(--neo-shadow-outset);
+}
+
 /* -----------------------------------------------------------
-   7. CITA DE INSPIRACIÓN
+   7. CITA DE INSPIRACIÓN NEOMÓRFICA
    ----------------------------------------------------------- */
 .inspiration-quote-section {
 	padding: 40px 28px;
@@ -733,8 +884,8 @@ a {
 	max-width: 820px;
 	background: var(--bg-card);
 	border-radius: var(--radius-md);
-	border: 1px solid var(--border-color);
-	box-shadow: var(--shadow-sm);
+	border: var(--neo-border);
+	box-shadow: var(--neo-shadow-outset);
 	position: relative;
 }
 
@@ -746,7 +897,7 @@ a {
 	font-size: 5rem;
 	font-family: var(--font-heading);
 	color: var(--primary);
-	opacity: 0.15;
+	opacity: 0.2;
 	line-height: 1;
 }
 
@@ -766,16 +917,16 @@ a {
 }
 
 /* -----------------------------------------------------------
-   8. FORMULARIO DE CONTACTO
+   8. FORMULARIO DE CONTACTO NEOMÓRFICO
    ----------------------------------------------------------- */
 .contact-section {
 	max-width: 680px;
 	margin: 64px auto;
 	background-color: var(--bg-card);
-	border: 1px solid var(--border-color);
+	border: var(--neo-border);
 	border-radius: var(--radius-md);
 	padding: 44px;
-	box-shadow: var(--shadow-md);
+	box-shadow: var(--neo-shadow-outset);
 }
 
 .contact-form {
@@ -797,20 +948,20 @@ a {
 .form-input, .form-textarea {
 	width: 100%;
 	padding: 14px 18px;
-	border: 1px solid var(--border-color);
-	background-color: var(--bg-body);
+	border: var(--neo-border);
+	background-color: var(--bg-card);
 	color: var(--text-title);
 	border-radius: var(--radius-sm);
 	font-family: var(--font-body);
 	font-size: 0.95rem;
+	box-shadow: var(--neo-shadow-inset);
 	transition: var(--transition);
 }
 
 .form-input:focus, .form-textarea:focus {
 	outline: none;
 	border-color: var(--primary);
-	box-shadow: 0 0 0 4px var(--primary-light);
-	background-color: var(--bg-card);
+	box-shadow: var(--neo-shadow-inset), 0 0 0 3px var(--primary-light);
 }
 
 .form-textarea, textarea {
@@ -836,18 +987,19 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 	font-weight: 600;
 	font-size: 0.9rem;
 	margin-bottom: 24px;
+	box-shadow: var(--neo-shadow-outset);
 }
 
 .alert-success {
-	background-color: rgba(16, 185, 129, 0.15);
+	background-color: var(--bg-card);
 	color: #059669;
-	border: 1px solid rgba(16, 185, 129, 0.3);
+	border: 1px solid rgba(16, 185, 129, 0.4);
 }
 
 .alert-error {
-	background-color: rgba(239, 68, 68, 0.15);
+	background-color: var(--bg-card);
 	color: #dc2626;
-	border: 1px solid rgba(239, 68, 68, 0.3);
+	border: 1px solid rgba(239, 68, 68, 0.4);
 }
 
 .hidden {
@@ -855,7 +1007,7 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 }
 
 /* -----------------------------------------------------------
-   9. DETALLE DE PROYECTO & MODAL RESPONSIVO
+   9. DETALLE DE PROYECTO & MODAL NEOMÓRFICO
    ----------------------------------------------------------- */
 .modal {
 	display: none;
@@ -881,7 +1033,7 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.65);
+	background-color: rgba(0, 0, 0, 0.6);
 	backdrop-filter: blur(8px);
 	-webkit-backdrop-filter: blur(8px);
 	z-index: 1;
@@ -889,7 +1041,7 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 
 .modal-content {
 	background-color: var(--bg-card);
-	border: 1px solid var(--border-color);
+	border: var(--neo-border);
 	padding: 36px;
 	border-radius: var(--radius-md);
 	max-width: 640px;
@@ -899,7 +1051,7 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 	position: relative;
 	z-index: 2;
 	animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-	box-shadow: var(--shadow-lg);
+	box-shadow: var(--neo-shadow-outset-hover);
 }
 
 @keyframes modalPop {
@@ -918,24 +1070,30 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 	position: absolute;
 	top: 20px;
 	right: 20px;
-	width: 36px;
-	height: 36px;
+	width: 38px;
+	height: 38px;
 	border-radius: 50%;
-	background: var(--bg-tag);
-	border: 1px solid var(--border-color);
+	background: var(--bg-card);
+	border: var(--neo-border);
+	box-shadow: var(--neo-shadow-outset);
 	font-size: 22px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
-	transition: var(--transition);
+	transition: var(--transition-bounce);
 	line-height: 1;
 }
 
 .close-btn:hover {
 	color: var(--text-title);
-	background: var(--bg-tag-hover);
+	box-shadow: var(--neo-shadow-outset-hover);
 	transform: rotate(90deg);
+}
+
+.close-btn:active {
+	box-shadow: var(--neo-shadow-pressed);
+	transform: scale(0.95);
 }
 
 .modal-body h2 {
@@ -953,11 +1111,12 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 	font-weight: 650;
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
-	padding: 3px 9px;
+	padding: 4px 12px;
 	border-radius: var(--radius-full);
-	background: var(--primary-light);
+	background: var(--bg-card);
 	color: var(--primary);
-	border: 1px solid rgba(79, 70, 229, 0.2);
+	box-shadow: var(--neo-shadow-outset);
+	border: var(--neo-border);
 }
 
 .case-study-pill {
@@ -966,11 +1125,12 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 0.8px;
-	padding: 4px 12px;
+	padding: 4px 14px;
 	border-radius: var(--radius-full);
 	background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
 	color: #ffffff;
 	margin-bottom: 10px;
+	box-shadow: var(--neo-shadow-outset);
 }
 
 .modal-story-container {
@@ -982,10 +1142,11 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 }
 
 .story-box {
-	background: var(--bg-body);
-	border: 1px solid var(--border-color);
+	background: var(--bg-card);
+	border: var(--neo-border);
 	border-radius: var(--radius-sm);
 	padding: 18px 20px;
+	box-shadow: var(--neo-shadow-inset);
 	transition: var(--transition);
 	position: relative;
 	overflow: hidden;
@@ -993,7 +1154,6 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 
 .story-box:hover {
 	transform: translateY(-2px);
-	box-shadow: var(--shadow-md);
 }
 
 .story-box::before {
@@ -1069,24 +1229,40 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 	min-width: 160px;
 }
 
-/* Detalle individual (Página independiente) */
+/* Detalle individual */
 .project-detail-section {
 	max-width: 880px;
 	margin: 40px auto;
 	background-color: var(--bg-card);
-	border: 1px solid var(--border-color);
+	border: var(--neo-border);
 	border-radius: var(--radius-md);
 	padding: 40px;
-	box-shadow: var(--shadow-md);
+	box-shadow: var(--neo-shadow-outset);
 }
 
 /* -----------------------------------------------------------
-   10. FOOTER
+   10. ANIMACIONES DE SCROLL VINCULADAS A LA VELOCIDAD
+   ----------------------------------------------------------- */
+.reveal-on-scroll {
+	opacity: 0;
+	transform: translateY(var(--reveal-translate, 35px)) scale(var(--reveal-scale, 0.96));
+	transition: opacity var(--reveal-duration, 0.65s) cubic-bezier(0.16, 1, 0.3, 1),
+	            transform var(--reveal-duration, 0.65s) cubic-bezier(0.16, 1, 0.3, 1);
+	will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+}
+
+/* -----------------------------------------------------------
+   11. FOOTER NEOMÓRFICO
    ----------------------------------------------------------- */
 .main-footer {
 	text-align: center;
 	padding: 40px 24px;
-	border-top: 1px solid var(--border-color);
+	border-top: var(--neo-border);
 	margin-top: 64px;
 	color: var(--text-muted);
 	font-size: 0.9rem;
@@ -1104,21 +1280,38 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 	color: var(--text-body);
 	font-weight: 600;
 	font-size: 0.92rem;
-	padding: 6px 12px;
+	padding: 8px 16px;
 	border-radius: var(--radius-sm);
+	box-shadow: var(--neo-shadow-outset);
+	border: var(--neo-border);
 }
 
 .social-links a:hover {
 	color: var(--primary);
-	background-color: var(--primary-light);
+	box-shadow: var(--neo-shadow-outset-hover);
+}
+
+.social-links a:active {
+	box-shadow: var(--neo-shadow-pressed);
 }
 
 /* -----------------------------------------------------------
-   11. MEDIA QUERIES (MÓVIL Y TABLET)
+   12. MEDIA QUERIES RESPONSIVAS
    ----------------------------------------------------------- */
+@media (max-width: 1024px) {
+	:root {
+		--visible-slides: 2;
+	}
+}
+
 @media (max-width: 768px) {
+	:root {
+		--visible-slides: 1;
+	}
+
 	.main-header {
 		padding: 12px 18px;
+		width: calc(100% - 24px);
 	}
 
 	main {
@@ -1131,12 +1324,13 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 
 	.main-nav {
 		position: fixed;
-		top: 65px;
-		left: 0;
-		right: 0;
+		top: 75px;
+		left: 16px;
+		right: 16px;
 		background-color: var(--bg-card);
-		border-bottom: 1px solid var(--border-color);
-		box-shadow: var(--shadow-lg);
+		border: var(--neo-border);
+		border-radius: var(--radius-md);
+		box-shadow: var(--neo-shadow-outset-hover);
 		padding: 20px 24px;
 		transform: translateY(-120%);
 		opacity: 0;
@@ -1153,7 +1347,7 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 
 	.main-nav ul {
 		flex-direction: column;
-		gap: 8px;
+		gap: 12px;
 		width: 100%;
 	}
 
@@ -1167,6 +1361,7 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 		width: 100%;
 		font-size: 1.05rem;
 		border-radius: var(--radius-sm);
+		box-shadow: var(--neo-shadow-outset);
 	}
 
 	.main-nav a.nav-btn-contact {
@@ -1185,7 +1380,7 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 	}
 
 	.contact-section {
-		padding: 24px 20px;
+		padding: 28px 20px;
 	}
 
 	.skills-summary-box {
@@ -1220,8 +1415,13 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 	}
 
 	.avatar-wrapper {
-		width: 110px;
-		height: 110px;
+		width: 120px;
+		height: 120px;
 		margin-bottom: 20px;
+	}
+
+	.carousel-arrow {
+		width: 40px;
+		height: 40px;
 	}
 }
