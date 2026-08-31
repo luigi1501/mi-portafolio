@@ -29,10 +29,9 @@ Repositorio central del portafolio profesional de **Luis Rodríguez**, Desarroll
 - **Desplazamiento Automático (Autoplay)**: Transición automática cada 3.5 segundos con pausa al pasar el puntero (*hover*) o tocar.
 - **Interacción Multidispositivo**: Navegación por arrastre (mouse drag), deslizamiento táctil (*touch swipe*), botones de flechas neomórficos e indicadores de puntos (*dots*).
 
-### 4. 📱 Responsividad Total
-- **1 Tarjeta visible** en Móvil (`<768px`).
-- **2 Tarjetas visibles** en Tablet (`768px - 1024px`).
-- **3 Tarjetas visibles** en Escritorio (`>1024px`).
+### 4. 📱 Vista Destacada Individual (1 Proyecto por Slide)
+- Se muestra **1 tarjeta de proyecto destacada a la vez** en pantallas de escritorio, tablets y móviles.
+- El carrusel se desplaza automáticamente uno a uno, brindando protagonismo completo a cada caso de estudio.
 
 ---
 

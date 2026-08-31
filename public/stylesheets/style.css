@@ -46,8 +46,8 @@
 	--transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 	--transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 
-	/* Responsive Slides count for Carousel */
-	--visible-slides: 3;
+	/* Responsive Slides count for Carousel (1 card per view) */
+	--visible-slides: 1;
 }
 
 /* Modo Oscuro Neomórfico */
@@ -1297,18 +1297,10 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 
 /* -----------------------------------------------------------
    12. MEDIA QUERIES RESPONSIVAS
+/* -----------------------------------------------------------
+   12. MEDIA QUERIES RESPONSIVAS
    ----------------------------------------------------------- */
-@media (max-width: 1024px) {
-	:root {
-		--visible-slides: 2;
-	}
-}
-
 @media (max-width: 768px) {
-	:root {
-		--visible-slides: 1;
-	}
-
 	.main-header {
 		padding: 12px 18px;
 		width: calc(100% - 24px);

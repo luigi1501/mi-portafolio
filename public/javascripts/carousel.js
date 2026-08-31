@@ -26,12 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let autoplayTimer = null;
     const AUTOPLAY_INTERVAL = 3500; // 3.5 seconds
 
-    // Helper: Determine visible slides based on viewport width
+    // Helper: Determine visible slides based on viewport width (1 project card visible per view)
     const getVisibleSlides = () => {
-        const width = window.innerWidth;
-        if (width < 768) return 1;
-        if (width <= 1024) return 2;
-        return 3;
+        return 1;
     };
 
     // Calculate maximum slide index
