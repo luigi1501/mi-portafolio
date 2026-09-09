@@ -66,7 +66,7 @@ const data = {
         "Unificación instantánea de cotizaciones financieras, conversión sin errores con formato regional venezolano, generación de comprobantes digitales de pago en 1 clic y reducción de riesgos de fraude P2P.",
       impacto_en:
         "Instant unification of financial exchange rates, error-free conversion with Venezuelan regional formatting, 1-click digital receipt generation, and reduced P2P fraud risk.",
-      linkDemo: "https://tasaplus.vercel.app",
+      linkDemo: "https://tasa-plus.vercel.app",
       linkRepo: "https://github.com/luigi1501/Proyecto-Calculadora-Monedas",
       enProceso: false,
       destacado: true,
