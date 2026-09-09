@@ -1340,18 +1340,47 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 }
 
 /* -----------------------------------------------------------
-   12. MEDIA QUERIES RESPONSIVAS
-/* -----------------------------------------------------------
-   12. MEDIA QUERIES RESPONSIVAS
+   12. SISTEMA RESPONSIVO INTEGRAL Y ADAPTABILIDAD MULTIDISPOSITIVO
    ----------------------------------------------------------- */
-@media (max-width: 768px) {
+
+/* Tableta y Laptops Pequeñas (<= 1024px) */
+@media (max-width: 1024px) {
 	.main-header {
-		padding: 12px 18px;
-		width: calc(100% - 24px);
+		width: calc(100% - 32px);
+		padding: 12px 20px;
 	}
 
-	main {
-		padding: 20px 16px 48px 16px;
+	.hero-section {
+		padding: 40px 0 50px 0;
+	}
+
+	.skills-list-grid {
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 20px;
+	}
+
+	.cv-modal-box {
+		width: 96vw;
+		height: 94vh;
+	}
+}
+
+/* Tabletas en Retrato y Móviles Grandes (<= 768px) */
+@media (max-width: 768px) {
+	/* Header y Navegación */
+	.main-header {
+		padding: 10px 16px;
+		width: calc(100% - 24px);
+		margin-top: 8px;
+		top: 8px;
+	}
+
+	.header-actions {
+		gap: 8px;
+	}
+
+	.logo a {
+		font-size: 1.15rem;
 	}
 
 	.menu-toggle {
@@ -1360,14 +1389,14 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 
 	.main-nav {
 		position: fixed;
-		top: 75px;
-		left: 16px;
-		right: 16px;
+		top: 70px;
+		left: 12px;
+		right: 12px;
 		background-color: var(--bg-card);
 		border: var(--neo-border);
 		border-radius: var(--radius-md);
 		box-shadow: var(--neo-shadow-outset-hover);
-		padding: 20px 24px;
+		padding: 18px 20px;
 		transform: translateY(-120%);
 		opacity: 0;
 		visibility: hidden;
@@ -1383,7 +1412,7 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 
 	.main-nav ul {
 		flex-direction: column;
-		gap: 12px;
+		gap: 10px;
 		width: 100%;
 	}
 
@@ -1395,287 +1424,95 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 		display: block;
 		padding: 12px 16px;
 		width: 100%;
-		font-size: 1.05rem;
+		font-size: 1rem;
 		border-radius: var(--radius-sm);
 		box-shadow: var(--neo-shadow-outset);
+		text-align: center;
 	}
 
 	.main-nav a.nav-btn-contact {
-		margin-top: 8px;
+		margin-top: 6px;
 		justify-content: center;
 		border-radius: var(--radius-md);
+	}
+
+	/* Contenido Principal y Héroe */
+	main {
+		padding: 16px 12px 40px 12px;
+	}
+
+	.hero-section {
+		padding: 24px 0 36px 0;
+	}
+
+	.hero-content h1 {
+		font-size: clamp(1.6rem, 5vw, 2.2rem);
+		line-height: 1.25;
+	}
+
+	.hero-content .subtitle {
+		font-size: 0.98rem;
+		line-height: 1.6;
+		margin-bottom: 20px;
 	}
 
 	.hero-buttons {
 		flex-direction: column;
 		width: 100%;
+		gap: 12px;
 	}
 
 	.hero-buttons .btn {
 		width: 100%;
+		justify-content: center;
+	}
+
+	/* Habilidades y Proyectos */
+	.skills-summary-box {
+		padding: 18px 18px;
+	}
+
+	.skills-list-grid {
+		grid-template-columns: 1fr;
+		gap: 16px;
+	}
+
+	.skill-category-block {
+		padding: 22px 18px;
 	}
 
 	.contact-section {
-		padding: 28px 20px;
+		padding: 24px 16px;
 	}
 
-	.skills-summary-box {
-		padding: 20px 22px;
+	/* Modal de Proyectos */
+	.modal {
+		padding: 12px;
 	}
 
 	.modal-content {
-		padding: 24px 20px;
-		max-height: 85vh;
+		padding: 22px 16px;
+		max-height: 88vh;
+		width: 100%;
+		border-radius: var(--radius-sm);
+	}
+
+	.modal-body h2 {
+		font-size: 1.35rem;
+		padding-right: 36px;
 	}
 
 	.modal-actions {
 		flex-direction: column;
+		gap: 10px;
 	}
 
 	.modal-actions .btn {
 		width: 100%;
-	}
-}
-
-@media (max-width: 480px) {
-	.project-card, .skill-category-block {
-		padding: 20px;
+		min-width: 0;
 	}
 
-	.page-title {
-		font-size: 1.6rem;
-	}
-
-	.hero-section {
-		padding: 24px 0 40px 0;
-	}
-
-	.avatar-wrapper {
-		width: 120px;
-		height: 120px;
-		margin-bottom: 20px;
-	}
-
-	.carousel-arrow {
-		width: 40px;
-		height: 40px;
-	}
-}
-
-/* -----------------------------------------------------------
-   VISOR MODAL CV — DISEÑO FULL-SCREEN NEOMÓRFICO
-   ----------------------------------------------------------- */
-
-.cv-modal-overlay {
-	padding: 0 !important;
-}
-
-.cv-modal-box {
-	position: relative;
-	z-index: 2;
-	display: flex;
-	flex-direction: column;
-	width: 95vw;
-	max-width: 1100px;
-	height: 92vh;
-	background-color: var(--bg-card);
-	border: var(--neo-border);
-	border-radius: var(--radius-md);
-	box-shadow: var(--neo-shadow-outset-hover);
-	animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-	overflow: hidden;
-}
-
-/* Header del modal CV */
-.cv-modal-header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 12px;
-	padding: 14px 22px;
-	border-bottom: 1px solid var(--border-color);
-	flex-shrink: 0;
-	min-height: 64px;
-	box-sizing: border-box;
-}
-
-/* Neutralizar position:absolute del close-btn global dentro del header CV */
-.cv-modal-header .close-btn,
-#close-cv-modal {
-	position: relative !important;
-	top: auto !important;
-	right: auto !important;
-	left: auto !important;
-	bottom: auto !important;
-	flex-shrink: 0 !important;
-	margin: 0 0 0 6px !important;
-	width: 36px !important;
-	height: 36px !important;
-	font-size: 20px !important;
-	display: inline-flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-	border-radius: 50% !important;
-	background: var(--bg-card) !important;
-	border: var(--neo-border) !important;
-	box-shadow: var(--neo-shadow-outset) !important;
-	cursor: pointer !important;
-	z-index: 10 !important;
-}
-
-.cv-modal-header .close-btn:hover,
-#close-cv-modal:hover {
-	box-shadow: var(--neo-shadow-outset-hover) !important;
-	transform: rotate(90deg) scale(1.05) !important;
-}
-
-.cv-modal-title-group {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	min-width: 0;
-	overflow: hidden;
-}
-
-.cv-modal-title-group h2 {
-	font-size: 0.95rem;
-	font-weight: 700;
-	color: var(--text-title);
-	margin: 0;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-
-.cv-pill {
-	flex-shrink: 0;
-	font-size: 0.7rem !important;
-	padding: 4px 10px !important;
-}
-
-/* Controles: idioma + botones + cerrar */
-.cv-modal-controls {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	flex-shrink: 0;
-}
-
-/* Toggle idioma ES / EN */
-.cv-lang-toggle {
-	display: flex;
-	background: var(--bg-body);
-	border-radius: var(--radius-full);
-	padding: 3px;
-	box-shadow: var(--neo-shadow-inset);
-	gap: 2px;
-}
-
-.cv-lang-btn {
-	background: transparent;
-	border: none;
-	color: var(--text-muted);
-	font-size: 0.72rem;
-	font-weight: 700;
-	font-family: var(--font-heading);
-	padding: 5px 12px;
-	border-radius: var(--radius-full);
-	cursor: pointer;
-	transition: var(--transition-fast);
-	letter-spacing: 0.05em;
-}
-
-.cv-lang-btn.active {
-	background: var(--primary);
-	color: #fff;
-	box-shadow: 0 2px 8px rgba(79, 70, 229, 0.45);
-}
-
-.cv-lang-btn:not(.active):hover {
-	color: var(--text-title);
-	background: var(--primary-light);
-}
-
-/* Botones de acción en el header del CV */
-.cv-action-btn {
-	display: inline-flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-	padding: 8px 16px !important;
-	font-size: 0.8rem !important;
-	font-weight: 600 !important;
-	gap: 6px !important;
-	height: 36px !important;
-	white-space: nowrap !important;
-	border-radius: var(--radius-full) !important;
-	transition: all 0.25s ease !important;
-}
-
-/* Visor PDF */
-.cv-pdf-viewer {
-	flex: 1 1 auto;
-	width: 100%;
-	height: calc(100% - 64px);
-	min-height: 0;
-	overflow: hidden;
-	background: #ececec;
-	display: flex;
-	position: relative;
-}
-
-body.dark-mode .cv-pdf-viewer {
-	background: #12161f;
-}
-
-.cv-pdf-iframe {
-	width: 100%;
-	height: 100%;
-	min-height: 100%;
-	border: none;
-	display: block;
-	flex: 1;
-}
-
-/* Placeholder "Coming Soon" para inglés */
-.cv-coming-soon {
-	align-items: center;
-	justify-content: center;
-}
-
-.cv-coming-soon-content {
-	text-align: center;
-	padding: 40px 24px;
-	max-width: 420px;
-}
-
-.cv-coming-soon-icon {
-	font-size: 3.5rem;
-	margin-bottom: 16px;
-	line-height: 1;
-}
-
-.cv-coming-soon-content h3 {
-	font-size: 1.5rem;
-	font-weight: 700;
-	color: var(--text-title);
-	margin-bottom: 10px;
-}
-
-.cv-coming-soon-content p {
-	color: var(--text-body);
-	font-size: 0.95rem;
-	line-height: 1.6;
-	margin-bottom: 6px;
-}
-
-.cv-coming-soon-sub {
-	color: var(--text-muted) !important;
-	font-size: 0.85rem !important;
-	margin-bottom: 24px !important;
-}
-
-/* ---- RESPONSIVE ---- */
-@media (max-width: 768px) {
+	/* Modal del CV */
 	.cv-modal-box {
 		width: 100vw;
 		height: 100dvh;
@@ -1685,93 +1522,142 @@ body.dark-mode .cv-pdf-viewer {
 
 	.cv-modal-header {
 		padding: 10px 14px;
-		flex-wrap: wrap;
-		row-gap: 8px;
-		min-height: auto;
+		gap: 8px;
+		min-height: 56px;
+	}
+
+	.cv-modal-controls {
+		gap: 6px;
+	}
+
+	.cv-action-btn {
+		padding: 6px 12px !important;
+		font-size: 0.76rem !important;
+		height: 32px !important;
 	}
 
 	.cv-modal-title-group h2 {
-		font-size: 0.82rem;
+		font-size: 0.84rem;
 	}
 
 	.cv-pill {
 		display: none !important;
 	}
-
-	.cv-action-btn {
-		padding: 6px 10px !important;
-		font-size: 0.75rem !important;
-	}
 }
 
+/* Teléfonos Móviles Estándar (<= 480px) */
 @media (max-width: 480px) {
-	/* En móvil pequeño solo mostrar ícono en los botones de acción */
+	.main-header {
+		padding: 8px 12px;
+	}
+
+	.logo a {
+		font-size: 1.05rem;
+	}
+
+	/* Toggles compactos en header */
+	.nav-lang-toggle {
+		height: 36px;
+		padding: 2px;
+	}
+
+	.lang-toggle-btn {
+		padding: 4px 8px;
+		font-size: 0.72rem;
+	}
+
+	.theme-toggle-btn {
+		width: 36px;
+		height: 36px;
+		font-size: 0.95rem;
+	}
+
+	.menu-toggle {
+		width: 36px;
+		height: 36px;
+		padding: 8px 7px;
+	}
+
+	.status-pill {
+		font-size: 0.75rem;
+		padding: 5px 12px;
+	}
+
+	.avatar-wrapper {
+		width: 110px;
+		height: 110px;
+		margin-bottom: 16px;
+	}
+
+	.experience-badge {
+		font-size: 0.8rem;
+		padding: 6px 14px;
+	}
+
+	.project-card {
+		padding: 18px 16px;
+	}
+
+	.inspiration-quote-section {
+		padding: 24px 16px;
+	}
+
+	.quote-text {
+		font-size: 0.95rem;
+	}
+
+	/* CV Modal en pantalla pequeña: Solo iconos en los botones de acción para ganar espacio */
 	.cv-action-btn .btn-label-text {
 		display: none;
 	}
 
 	.cv-action-btn {
-		padding: 7px 9px !important;
-		min-width: 34px;
+		padding: 6px 8px !important;
+		min-width: 32px;
+		height: 32px !important;
 		justify-content: center;
 	}
 
 	.cv-modal-title-group h2 {
 		display: none;
 	}
+
+	#close-cv-modal {
+		width: 32px !important;
+		height: 32px !important;
+		font-size: 18px !important;
+		margin-left: 2px !important;
+	}
+
+	/* Social links en footer */
+	.social-links {
+		gap: 8px;
+	}
+
+	.social-links a {
+		font-size: 0.82rem;
+		padding: 6px 12px;
+	}
 }
 
-/* ==========================================================================
-   Language Toggle System (ES/EN)
-   ========================================================================== */
-.lang-toggle {
-    display: inline-flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 2px 3px;
-    margin-left: 12px;
-    backdrop-filter: blur(8px);
-    transition: border-color 0.25s ease, background-color 0.25s ease;
+/* Teléfonos Móviles Pequeños (<= 360px) */
+@media (max-width: 360px) {
+	.logo a span.logo-accent {
+		display: inline-block;
+	}
+
+	.hero-content h1 {
+		font-size: 1.45rem;
+	}
+
+	.btn {
+		padding: 10px 16px;
+		font-size: 0.88rem;
+	}
+
+	.cv-lang-btn {
+		padding: 4px 8px;
+		font-size: 0.68rem;
+	}
 }
 
-.lang-toggle:hover {
-    border-color: rgba(99, 102, 241, 0.4);
-    background: rgba(255, 255, 255, 0.08);
-}
-
-.lang-btn {
-    background: transparent;
-    border: none;
-    color: var(--text-muted, #94a3b8);
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 4px 9px;
-    border-radius: 16px;
-    cursor: pointer;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    outline: none;
-    line-height: 1;
-    letter-spacing: 0.5px;
-}
-
-.lang-btn:hover {
-    color: var(--text-main, #f8fafc);
-}
-
-.lang-btn.active {
-    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-    color: #ffffff;
-    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
-}
-
-@media (max-width: 768px) {
-    .lang-toggle {
-        margin-left: 8px;
-    }
-    .lang-btn {
-        padding: 3px 7px;
-        font-size: 0.7rem;
-    }
-}
