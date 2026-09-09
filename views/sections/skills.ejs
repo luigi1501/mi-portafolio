@@ -1,22 +1,22 @@
 <section class="skills-section" id="habilidades">
 	<div class="section-header">
-		<span class="section-tag">Habilidades & Stack</span>
-		<h2 class="page-title">Habilidades Técnicas & Experiencia</h2>
-		<p class="subtitle">
+		<span class="section-tag" data-i18n="skills.tag">Habilidades & Stack</span>
+		<h2 class="page-title" data-i18n="skills.title">Habilidades Técnicas & Experiencia</h2>
+		<p class="subtitle" data-i18n="skills.subtitle">
 			Stack tecnológico moderno centrado en rendimiento, arquitectura limpia y soluciones escalables.
 		</p>
 		<div class="badge-wrapper">
 			<span class="experience-badge">
-				🚀 Período de experiencia activa: <%= periodoExperiencia %>
+				🚀 <span data-i18n="skills.period-label">Período de experiencia activa:</span> <%= periodoExperiencia %>
 			</span>
 		</div>
 	</div>
 
 	<div class="skills-summary-box">
-		<p class="summary-paragraph">
+		<p class="summary-paragraph" data-i18n="skills.summary1">
 			Mi enfoque principal se centra en el desarrollo backend con <strong>Node.js</strong> y <strong>Express</strong>, complementado con aplicaciones sólidas en <strong>Python</strong>. Poseo amplia experiencia en el diseño e integración de bases de datos relacionales y NoSQL como <strong>MongoDB, MySQL, PostgreSQL, SQLite y TiDB Cloud</strong>.
 		</p>
-		<p class="summary-paragraph">
+		<p class="summary-paragraph" data-i18n="skills.summary2">
 			En el frontend, construyo interfaces dinámicas, responsivas y accesibles utilizando <strong>HTML5, CSS3, JavaScript y EJS</strong>, priorizando siempre la experiencia del usuario y la velocidad de carga.
 		</p>
 	</div>
@@ -24,7 +24,7 @@
 	<div class="skills-list-grid">
 		<% skillsPorCategoria.forEach(categoria => { %>
 		<div class="skill-category-block">
-			<h3><%= categoria.categoria %></h3>
+			<h3 data-lang-es="<%= categoria.categoria %>" data-lang-en="<%= categoria.categoria_en || categoria.categoria %>"><%= categoria.categoria %></h3>
 			<div class="tags-container">
 				<% categoria.tags.forEach(tag => { %>
 					<%

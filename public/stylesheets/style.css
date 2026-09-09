@@ -292,6 +292,51 @@ a {
 	transform: scale(0.95);
 }
 
+/* Toggle de Idioma ES / EN en Header */
+.nav-lang-toggle {
+	display: flex;
+	align-items: center;
+	background: var(--bg-card);
+	border: var(--neo-border);
+	box-shadow: var(--neo-shadow-inset);
+	border-radius: var(--radius-full);
+	padding: 3px;
+	gap: 2px;
+	height: 42px;
+	box-sizing: border-box;
+}
+
+.lang-toggle-btn {
+	background: transparent;
+	border: none;
+	color: var(--text-muted);
+	font-size: 0.76rem;
+	font-weight: 700;
+	font-family: var(--font-heading);
+	padding: 5px 11px;
+	height: 100%;
+	border-radius: var(--radius-full);
+	cursor: pointer;
+	transition: var(--transition-bounce);
+	letter-spacing: 0.05em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1;
+	outline: none;
+}
+
+.lang-toggle-btn:hover:not(.active) {
+	color: var(--text-title);
+	background: var(--primary-light);
+}
+
+.lang-toggle-btn.active {
+	background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+	color: #ffffff !important;
+	box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+}
+
 .menu-toggle {
 	display: none;
 	background: var(--bg-card);
@@ -1446,25 +1491,42 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 10px;
-	padding: 12px 20px;
+	gap: 12px;
+	padding: 14px 22px;
 	border-bottom: 1px solid var(--border-color);
 	flex-shrink: 0;
-	min-height: 60px;
-	flex-wrap: nowrap;
-	overflow: hidden;
+	min-height: 64px;
+	box-sizing: border-box;
 }
 
 /* Neutralizar position:absolute del close-btn global dentro del header CV */
-.cv-modal-header .close-btn {
-	position: static !important;
+.cv-modal-header .close-btn,
+#close-cv-modal {
+	position: relative !important;
 	top: auto !important;
 	right: auto !important;
-	flex-shrink: 0;
-	margin-left: 4px;
-	width: 34px;
-	height: 34px;
-	font-size: 18px;
+	left: auto !important;
+	bottom: auto !important;
+	flex-shrink: 0 !important;
+	margin: 0 0 0 6px !important;
+	width: 36px !important;
+	height: 36px !important;
+	font-size: 20px !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	border-radius: 50% !important;
+	background: var(--bg-card) !important;
+	border: var(--neo-border) !important;
+	box-shadow: var(--neo-shadow-outset) !important;
+	cursor: pointer !important;
+	z-index: 10 !important;
+}
+
+.cv-modal-header .close-btn:hover,
+#close-cv-modal:hover {
+	box-shadow: var(--neo-shadow-outset-hover) !important;
+	transform: rotate(90deg) scale(1.05) !important;
 }
 
 .cv-modal-title-group {
@@ -1495,7 +1557,7 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 .cv-modal-controls {
 	display: flex;
 	align-items: center;
-	gap: 8px;
+	gap: 10px;
 	flex-shrink: 0;
 }
 
@@ -1534,22 +1596,31 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 	background: var(--primary-light);
 }
 
-/* Botones de acción en el header */
+/* Botones de acción en el header del CV */
 .cv-action-btn {
-	padding: 7px 14px !important;
-	font-size: 0.78rem !important;
-	gap: 5px !important;
-	height: auto !important;
-	white-space: nowrap;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	padding: 8px 16px !important;
+	font-size: 0.8rem !important;
+	font-weight: 600 !important;
+	gap: 6px !important;
+	height: 36px !important;
+	white-space: nowrap !important;
+	border-radius: var(--radius-full) !important;
+	transition: all 0.25s ease !important;
 }
 
 /* Visor PDF */
 .cv-pdf-viewer {
-	flex: 1;
+	flex: 1 1 auto;
 	width: 100%;
+	height: calc(100% - 64px);
+	min-height: 0;
 	overflow: hidden;
 	background: #ececec;
 	display: flex;
+	position: relative;
 }
 
 body.dark-mode .cv-pdf-viewer {
@@ -1559,8 +1630,10 @@ body.dark-mode .cv-pdf-viewer {
 .cv-pdf-iframe {
 	width: 100%;
 	height: 100%;
+	min-height: 100%;
 	border: none;
 	display: block;
+	flex: 1;
 }
 
 /* Placeholder "Coming Soon" para inglés */
@@ -1648,3 +1721,57 @@ body.dark-mode .cv-pdf-viewer {
 	}
 }
 
+/* ==========================================================================
+   Language Toggle System (ES/EN)
+   ========================================================================== */
+.lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2px 3px;
+    margin-left: 12px;
+    backdrop-filter: blur(8px);
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.lang-toggle:hover {
+    border-color: rgba(99, 102, 241, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted, #94a3b8);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 9px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    line-height: 1;
+    letter-spacing: 0.5px;
+}
+
+.lang-btn:hover {
+    color: var(--text-main, #f8fafc);
+}
+
+.lang-btn.active {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+}
+
+@media (max-width: 768px) {
+    .lang-toggle {
+        margin-left: 8px;
+    }
+    .lang-btn {
+        padding: 3px 7px;
+        font-size: 0.7rem;
+    }
+}

@@ -8,7 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const backdrop = document.querySelector('#project-modal .modal-backdrop');
 
     if (modal && openModalBtns.length > 0) {
-        const openModal = (proyecto) => {
+        let currentModalProject = null;
+
+        const renderModalContent = () => {
+            if (!currentModalProject) return;
+            const proyecto = currentModalProject;
+            const currentLang = localStorage.getItem('portfolio_lang') || 'es';
+            const isEn = currentLang === 'en';
+
             const modalTitle = document.getElementById('modal-title');
             const modalStatus = document.getElementById('modal-status');
             const modalTechTags = document.getElementById('modal-tech-tags');
@@ -20,18 +27,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const linkDemo = document.getElementById('modal-link-demo');
             const linkRepo = document.getElementById('modal-link-repo');
 
-            modalTitle.textContent = proyecto.nombre;
+            modalTitle.textContent = (isEn && proyecto.nombre_en) ? proyecto.nombre_en : proyecto.nombre;
 
-            if (proyecto.problema && proyecto.solucionTecnica && proyecto.impacto) {
+            const prob = (isEn && proyecto.problema_en) ? proyecto.problema_en : proyecto.problema;
+            const sol = (isEn && (proyecto.solucionTecnica_en || proyecto.solucion_en)) ? (proyecto.solucionTecnica_en || proyecto.solucion_en) : proyecto.solucionTecnica;
+            const imp = (isEn && proyecto.impacto_en) ? proyecto.impacto_en : proyecto.impacto;
+
+            if (prob && sol && imp) {
                 if (storyContainer) storyContainer.style.display = 'flex';
                 if (modalDescription) modalDescription.style.display = 'none';
-                if (problemText) problemText.textContent = proyecto.problema;
-                if (solutionText) solutionText.textContent = proyecto.solucionTecnica;
-                if (impactText) impactText.textContent = proyecto.impacto;
+                if (problemText) problemText.textContent = prob;
+                if (solutionText) solutionText.textContent = sol;
+                if (impactText) impactText.textContent = imp;
             } else {
                 if (storyContainer) storyContainer.style.display = 'none';
                 if (modalDescription) {
-                    modalDescription.textContent = proyecto.descripcionLarga || proyecto.resumen;
+                    const desc = isEn ? (proyecto.descripcion_en || proyecto.resumen_en || proyecto.resumen) : (proyecto.descripcionLarga || proyecto.resumen);
+                    modalDescription.textContent = desc;
                     modalDescription.style.display = 'block';
                 }
             }
@@ -45,11 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (proyecto.enProceso) {
-                modalStatus.textContent = '⚡ Proyecto actualmente En Proceso de Desarrollo';
+                modalStatus.textContent = isEn ? '⚡ Project currently In Development' : '⚡ Proyecto actualmente En Proceso de Desarrollo';
                 modalStatus.className = 'status-in-progress';
                 modalStatus.style.display = 'inline-block';
             } else {
-                modalStatus.textContent = '✓ Proyecto Completado y Desplegado';
+                modalStatus.textContent = isEn ? '✓ Project Completed and Deployed' : '✓ Proyecto Completado y Desplegado';
                 modalStatus.className = 'status-completed';
                 modalStatus.style.display = 'inline-block';
             }
@@ -57,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (proyecto.linkDemo && !proyecto.enProceso) {
                 linkDemo.href = proyecto.linkDemo;
                 const spanDemo = linkDemo.querySelector('span');
-                if (spanDemo) spanDemo.textContent = "Ver Demo en Vivo";
+                if (spanDemo) spanDemo.textContent = isEn ? "View Live Demo" : "Ver Demo en Vivo";
                 linkDemo.style.display = 'inline-flex';
                 linkDemo.classList.remove('btn-disabled');
                 linkDemo.target = "_blank";
@@ -68,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (proyecto.linkRepo) {
                 linkRepo.href = proyecto.linkRepo;
                 const spanRepo = linkRepo.querySelector('span');
-                if (spanRepo) spanRepo.textContent = "Ver Código Fuente";
+                if (spanRepo) spanRepo.textContent = isEn ? "View Source Code" : "Ver Código Fuente";
                 linkRepo.classList.remove('btn-disabled');
                 linkRepo.style.cursor = 'pointer';
                 linkRepo.onclick = null;
@@ -76,20 +88,34 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 linkRepo.href = '#'; 
                 const spanRepo = linkRepo.querySelector('span');
-                if (spanRepo) spanRepo.textContent = "Repo Privado / En Proceso";
+                if (spanRepo) spanRepo.textContent = isEn ? "Private Repo / In Progress" : "Repo Privado / En Proceso";
                 linkRepo.classList.add('btn-disabled');
                 linkRepo.style.cursor = 'not-allowed';
                 linkRepo.target = "_self";
                 linkRepo.onclick = (e) => {
                     e.preventDefault();
-                    alert("El código para este proyecto aún está en proceso de subida y organización.");
+                    alert(isEn ? "The code for this project is currently being uploaded and organized." : "El código para este proyecto aún está en proceso de subida y organización.");
                     return false;
                 };
             }
 
+            if (typeof window.applyTranslations === 'function') {
+                window.applyTranslations(currentLang);
+            }
+        };
+
+        const openModal = (proyecto) => {
+            currentModalProject = proyecto;
+            renderModalContent();
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         };
+
+        window.addEventListener('languageChanged', () => {
+            if (modal.classList.contains('active') && currentModalProject) {
+                renderModalContent();
+            }
+        });
 
         const closeModal = () => {
             modal.classList.remove('active');

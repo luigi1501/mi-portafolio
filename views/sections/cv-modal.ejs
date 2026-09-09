@@ -21,19 +21,19 @@
                 </div>
 
                 <!-- Botón Abrir -->
-                <a id="cv-open-tab" href="/images/Curriculum Luigi.pdf" target="_blank" class="btn btn-primary btn-sm cv-action-btn" title="Abrir en pestaña nueva">
+                <a id="cv-open-tab" href="/images/Curriculum Luigi.pdf" target="_blank" class="btn btn-primary btn-sm cv-action-btn" title="Abrir en pestaña nueva" data-i18n-title="cv-modal.open-title">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-                    <span class="btn-label-text">Abrir</span>
+                    <span class="btn-label-text" data-i18n="cv-modal.btn-open">Abrir</span>
                 </a>
 
                 <!-- Botón Descargar -->
-                <a id="cv-download-btn" href="/images/Curriculum Luigi.pdf" download="Curriculum_Luis_Rodriguez.pdf" class="btn btn-secondary btn-sm cv-action-btn" title="Descargar PDF">
+                <a id="cv-download-btn" href="/images/Curriculum Luigi.pdf" download="Curriculum_Luis_Rodriguez.pdf" class="btn btn-secondary btn-sm cv-action-btn" title="Descargar PDF" data-i18n-title="cv-modal.download-title">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    <span class="btn-label-text">Descargar</span>
+                    <span class="btn-label-text" data-i18n="cv-modal.btn-download">Descargar</span>
                 </a>
 
                 <!-- Botón Cerrar -->
-                <button class="close-btn" id="close-cv-modal" aria-label="Cerrar visor de CV">&times;</button>
+                <button class="close-btn" id="close-cv-modal" data-i18n-aria="modal.close-aria" aria-label="Cerrar visor de CV">&times;</button>
             </div>
         </div>
 
@@ -79,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
             langEnBtn.classList.remove('active');
             langEsBtn.setAttribute('aria-pressed', 'true');
             langEnBtn.setAttribute('aria-pressed', 'false');
-            // Botones apuntan al CV en español
             openTabBtn.href = '/images/Curriculum Luigi.pdf';
             downloadBtn.href = '/images/Curriculum Luigi.pdf';
             downloadBtn.setAttribute('download', 'Curriculum_Luis_Rodriguez.pdf');
@@ -90,7 +89,6 @@ document.addEventListener('DOMContentLoaded', function () {
             langEnBtn.classList.add('active');
             langEsBtn.setAttribute('aria-pressed', 'false');
             langEnBtn.setAttribute('aria-pressed', 'true');
-            // Botones apuntan al CV en inglés
             openTabBtn.href = '/images/CV_Luis_Rodriguez.pdf';
             downloadBtn.href = '/images/CV_Luis_Rodriguez.pdf';
             downloadBtn.setAttribute('download', 'CV_Luis_Rodriguez.pdf');
@@ -99,5 +97,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     langEsBtn.addEventListener('click', () => switchLang('es'));
     langEnBtn.addEventListener('click', () => switchLang('en'));
+
+    // Sincronizar automáticamente con el idioma general al abrir o al cambiar de idioma
+    window.addEventListener('languageChanged', (e) => {
+        if (e && e.detail && e.detail.lang) {
+            switchLang(e.detail.lang);
+        }
+    });
+
+    const activeLang = (typeof window.getStoredLang === 'function') ? window.getStoredLang() : (localStorage.getItem('portfolio_lang') || 'es');
+    switchLang(activeLang);
 });
 </script>

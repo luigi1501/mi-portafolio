@@ -4,29 +4,33 @@
     <div class="hero-bg-glow"></div>
     <div class="hero-content">
         <div class="status-pill">
-            <span class="status-dot"></span> Disponible para nuevos proyectos
+            <span class="status-dot"></span> <span data-i18n="hero.status">Disponible para nuevos proyectos</span>
         </div>
         <div class="avatar-wrapper">
             <img src="/images/perfil.jpg" alt="Foto de Perfil de Luis Rodríguez" class="profile-img"/>
         </div>
 
-        <h1>¡Hola! Soy <span class="gradient-text">Luis Rodríguez</span>, Desarrollador Full Stack</h1>
-        <p class="subtitle"><%= experiencia.descripcion %></p>
+        <h1>
+            <span data-i18n="hero.greeting">¡Hola! Soy</span>
+            <span class="gradient-text"> Luis Rodríguez</span>,
+            <span data-i18n="hero.name-role" class="hero-role-text">Desarrollador Full Stack</span>
+        </h1>
+        <p class="subtitle" data-lang-es="<%= experiencia.descripcion %>" data-lang-en="<%= experiencia.descripcion_en %>"><%= experiencia.descripcion %></p>
         <div class="hero-badges">
-            <span class="experience-badge">⚡ <%= experiencia.años %> de experiencia (<%= experiencia.periodo%>)</span>
+            <span class="experience-badge">⚡ <%= experiencia.años %> <span data-i18n="hero.experience">de experiencia</span> (<%= experiencia.periodo%>)</span>
         </div>
 
         <div class="hero-buttons">
             <a href="#proyectos" class="btn btn-primary">
-                <span>Ver Proyectos</span>
+                <span data-i18n="hero.btn-projects">Ver Proyectos</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
             <button id="open-cv-btn" class="btn btn-secondary open-cv-modal-btn" type="button">
-                <span>Ver CV</span>
+                <span data-i18n="hero.btn-cv">Ver CV</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
             </button>
             <a href="/images/Curriculum Luigi.pdf" target="_blank" download="Curriculum_Luis_Rodriguez.pdf" class="btn btn-secondary btn-cv" title="Descargar PDF directamente">
-                <span>Descargar CV</span>
+                <span data-i18n="hero.btn-download">Descargar CV</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             </a>
         </div>
@@ -38,14 +42,13 @@
 
 <section class="inspiration-quote-section">
     <div class="quote-content">
-        <p class="quote-text">
+        <p class="quote-text" data-i18n="quote.text">
             "Cada obstáculo superado no fue un error, sino una lección de maestría. Mi portafolio no solo muestra código, sino la perseverancia de quien se niega a rendirse ante la complejidad."
         </p>
-        <p class="quote-author">
+        <p class="quote-author" data-i18n="quote.author">
             — Luis Rodríguez
         </p>
     </div>
 </section>
 <%- include('./sections/contact.ejs') %> 
-<%- include('./sections/cv-modal.ejs') %>
-<%- include('./partials/footer.ejs')%>
+<%- include('./sections/cv-modal.ejs') %>
