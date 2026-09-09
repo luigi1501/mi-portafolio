@@ -21,9 +21,13 @@
                 <span>Ver Proyectos</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-            <a href="#contacto" class="btn btn-secondary">
-                <span>Contactar Ahora</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            <button id="open-cv-btn" class="btn btn-secondary open-cv-modal-btn" type="button">
+                <span>Ver CV</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+            <a href="/images/Curriculum Luigi.pdf" target="_blank" download="Curriculum_Luis_Rodriguez.pdf" class="btn btn-secondary btn-cv" title="Descargar PDF directamente">
+                <span>Descargar CV</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             </a>
         </div>
     </div>
@@ -43,4 +47,5 @@
     </div>
 </section>
 <%- include('./sections/contact.ejs') %> 
+<%- include('./sections/cv-modal.ejs') %>
 <%- include('./partials/footer.ejs')%>

@@ -15,7 +15,7 @@ const data = {
   skills: [
     {
       categoria: "Backend",
-      tags: ["Node.js (Express)", "Python (Django/Flask)", "SQL/NoSQL", "Restful APIs"],
+      tags: ["Node.js (Express)", ".NET 10 (C#)", "Python (Django/Flask)", "SQL/NoSQL", "Restful APIs"],
     },
     {
       categoria: "Bases de Datos",
@@ -23,13 +23,42 @@ const data = {
     },
     {
       categoria: "Frontend & Cloud",
-      tags: ["HTML5", "CSS3", "EJS", "Vercel", "Bootstrap", "Chart.js"],
+      tags: ["HTML5", "CSS3", "Tailwind CSS", "Blazor", "EJS", "Vercel", "Bootstrap", "Chart.js"],
     },
   ],
 
   // 🚀 Tus proyectos clave
   proyectos: [
-    // 🛑 PROYECTO 1: Sistema de Gestión de Inventario Pro
+    // 🛑 PROYECTO 1: TasaPlus — Monitor Inteligente y Calculadora Financiera
+    {
+      nombre: "TasaPlus — Monitor Inteligente y Calculadora Financiera",
+      slug: "tasaplus",
+      fecha: "2026",
+      tecnologias: [
+        ".NET 10",
+        "C#",
+        "ASP.NET Core Web API",
+        "Blazor",
+        "Tailwind CSS",
+        "JavaScript",
+        "Vercel",
+        ".NET MAUI",
+      ],
+      resumen:
+        "Solución financiera multiplataforma que unifica en tiempo real las cotizaciones del BCV y Binance (Spot & P2P) con calculadora inteligente y generador de comprobantes.",
+      problema:
+        "La disparidad y fluctuación entre las tasas oficiales del Banco Central de Venezuela (BCV) y el mercado P2P/Spot de criptomonedas (Binance) dificultan la fijación exacta de precios y la conversión rápida de divisas para comerciantes y usuarios en Venezuela.",
+      solucionTecnica:
+        "Desarrollo de una arquitectura multiplataforma (.NET 10 / C# ASP.NET Core Web API + Blazor Shared) con sincronización automática de APIs de cotización (ve.dolarapi.com, Binance Spot & P2P). Incluye calculadora bidireccional inteligente con formato regional es-VE (punto para miles, coma para decimales), generador de comprobantes en HD (PNG) para compartir en WhatsApp/Telegram y guía de seguridad P2P.",
+      impacto:
+        "Unificación instantánea de cotizaciones financieras, conversión sin errores con formato regional venezolano, generación de comprobantes digitales de pago en 1 clic y reducción de riesgos de fraude P2P.",
+      linkDemo: "https://tasaplus.vercel.app",
+      linkRepo: "https://github.com/luigi1501/Proyecto-Calculadora-Monedas",
+      enProceso: false,
+      destacado: true,
+    },
+
+    // 🛑 PROYECTO 2: Sistema de Gestión de Inventario Pro
     {
       nombre: "Sistema de Gestión de Inventario Pro",
       slug: "gestion-inventario",
