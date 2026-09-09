@@ -1545,76 +1545,208 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 	}
 }
 
-/* Teléfonos Móviles Estándar (<= 480px) */
+/* Teléfonos Móviles Estándar y Pequeños (<= 480px) */
 @media (max-width: 480px) {
+	/* Header Ultracompacto */
 	.main-header {
-		padding: 8px 12px;
+		padding: 8px 10px;
+		width: calc(100% - 16px);
+		margin-top: 6px;
+		top: 6px;
 	}
 
 	.logo a {
-		font-size: 1.05rem;
+		font-size: 0.95rem;
+		gap: 3px;
 	}
 
-	/* Toggles compactos en header */
+	.header-actions {
+		gap: 4px;
+	}
+
 	.nav-lang-toggle {
-		height: 36px;
+		height: 32px;
 		padding: 2px;
+		gap: 1px;
 	}
 
 	.lang-toggle-btn {
-		padding: 4px 8px;
-		font-size: 0.72rem;
+		padding: 2px 6px;
+		font-size: 0.68rem;
 	}
 
 	.theme-toggle-btn {
-		width: 36px;
-		height: 36px;
-		font-size: 0.95rem;
+		width: 32px;
+		height: 32px;
+		font-size: 0.85rem;
 	}
 
 	.menu-toggle {
-		width: 36px;
-		height: 36px;
-		padding: 8px 7px;
+		width: 32px;
+		height: 32px;
+		padding: 6px 5px;
 	}
 
+	/* Héroe */
 	.status-pill {
-		font-size: 0.75rem;
-		padding: 5px 12px;
+		font-size: 0.72rem;
+		padding: 4px 10px;
+		max-width: 100%;
+		text-align: center;
 	}
 
 	.avatar-wrapper {
-		width: 110px;
-		height: 110px;
-		margin-bottom: 16px;
+		width: 95px;
+		height: 95px;
+		margin-bottom: 12px;
+	}
+
+	.hero-content h1 {
+		font-size: clamp(1.35rem, 6vw, 1.8rem);
+		line-height: 1.3;
+		word-break: break-word;
+	}
+
+	.hero-content .subtitle {
+		font-size: 0.88rem;
+		line-height: 1.5;
+		padding: 0 4px;
 	}
 
 	.experience-badge {
-		font-size: 0.8rem;
-		padding: 6px 14px;
+		font-size: 0.76rem;
+		padding: 6px 10px;
+		white-space: normal;
+		text-align: center;
+		display: inline-block;
+	}
+
+	.hero-buttons {
+		gap: 8px;
+	}
+
+	.hero-buttons .btn {
+		min-height: 42px;
+		padding: 10px 14px;
+		font-size: 0.85rem;
+		width: 100%;
+		justify-content: center;
+		box-sizing: border-box;
+	}
+
+	/* Tarjetas y Habilidades */
+	.skills-summary-box {
+		padding: 14px 12px;
+		font-size: 0.86rem;
+	}
+
+	.skills-summary-box p {
+		font-size: 0.86rem;
+		line-height: 1.5;
+	}
+
+	.skill-category-block {
+		padding: 16px 12px;
+	}
+
+	.skill-category-block h3 {
+		font-size: 1rem;
+		margin-bottom: 10px;
+	}
+
+	.tags-container {
+		gap: 6px;
+	}
+
+	.skill-tag {
+		font-size: 0.74rem;
+		padding: 5px 8px;
+	}
+
+	/* Carrusel y Tarjetas de Proyecto */
+	.carousel-slide {
+		flex: 0 0 100%;
 	}
 
 	.project-card {
-		padding: 18px 16px;
+		padding: 16px 12px;
+		max-width: 100%;
+		box-sizing: border-box;
 	}
 
-	.inspiration-quote-section {
-		padding: 24px 16px;
+	.project-header-meta {
+		font-size: 0.7rem;
+		gap: 4px;
+		flex-wrap: wrap;
 	}
 
-	.quote-text {
-		font-size: 0.95rem;
+	.project-card h3 {
+		font-size: 1.05rem;
+		word-break: break-word;
 	}
 
-	/* CV Modal en pantalla pequeña: Solo iconos en los botones de acción para ganar espacio */
+	.project-card .summary {
+		font-size: 0.84rem;
+		line-height: 1.45;
+	}
+
+	.card-actions .btn {
+		width: 100%;
+		justify-content: center;
+		font-size: 0.82rem;
+	}
+
+	/* Modal de Proyectos */
+	.modal {
+		padding: 8px;
+	}
+
+	.modal-content {
+		width: 96vw;
+		max-height: 92vh;
+		padding: 18px 12px;
+		border-radius: var(--radius-sm);
+	}
+
+	.modal-body h2 {
+		font-size: 1.15rem;
+		padding-right: 28px;
+		line-height: 1.3;
+	}
+
+	.story-box {
+		padding: 12px 10px;
+	}
+
+	.story-box-header h4 {
+		font-size: 0.88rem;
+	}
+
+	.story-box p {
+		font-size: 0.82rem;
+		line-height: 1.45;
+	}
+
+	.modal-actions {
+		flex-direction: column;
+		gap: 8px;
+		margin-top: 18px;
+	}
+
+	.modal-actions .btn {
+		width: 100%;
+		justify-content: center;
+	}
+
+	/* Visor CV Modal en Móvil */
 	.cv-action-btn .btn-label-text {
 		display: none;
 	}
 
 	.cv-action-btn {
-		padding: 6px 8px !important;
-		min-width: 32px;
-		height: 32px !important;
+		padding: 4px 6px !important;
+		min-width: 30px;
+		height: 30px !important;
 		justify-content: center;
 	}
 
@@ -1622,42 +1754,84 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 		display: none;
 	}
 
-	#close-cv-modal {
-		width: 32px !important;
-		height: 32px !important;
-		font-size: 18px !important;
-		margin-left: 2px !important;
-	}
-
-	/* Social links en footer */
-	.social-links {
-		gap: 8px;
-	}
-
-	.social-links a {
-		font-size: 0.82rem;
-		padding: 6px 12px;
-	}
-}
-
-/* Teléfonos Móviles Pequeños (<= 360px) */
-@media (max-width: 360px) {
-	.logo a span.logo-accent {
-		display: inline-block;
-	}
-
-	.hero-content h1 {
-		font-size: 1.45rem;
-	}
-
-	.btn {
-		padding: 10px 16px;
-		font-size: 0.88rem;
+	.cv-lang-toggle {
+		height: 30px;
+		padding: 2px;
 	}
 
 	.cv-lang-btn {
-		padding: 4px 8px;
-		font-size: 0.68rem;
+		padding: 2px 6px;
+		font-size: 0.66rem;
+	}
+
+	#close-cv-modal {
+		width: 30px !important;
+		height: 30px !important;
+		font-size: 16px !important;
+		margin-left: 2px !important;
+	}
+
+	/* Contacto y Formulario */
+	.contact-section {
+		padding: 18px 12px;
+	}
+
+	.form-group label {
+		font-size: 0.85rem;
+	}
+
+	.form-input, .form-textarea {
+		font-size: 0.85rem;
+		padding: 10px;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	#submitButton {
+		width: 100%;
+		justify-content: center;
+		min-height: 44px;
+	}
+
+	/* Cita Inspiradora */
+	.inspiration-quote-section {
+		padding: 18px 12px;
+	}
+
+	.quote-text {
+		font-size: 0.88rem;
+		line-height: 1.5;
+	}
+
+	/* Pie de página */
+	.social-links {
+		gap: 6px;
+	}
+
+	.social-links a {
+		font-size: 0.78rem;
+		padding: 6px 10px;
+	}
+}
+
+/* Teléfonos Móviles Ultra Pequeños (<= 360px) */
+@media (max-width: 360px) {
+	.logo a {
+		font-size: 0.88rem;
+	}
+
+	.hero-content h1 {
+		font-size: 1.25rem;
+	}
+
+	.btn {
+		padding: 8px 12px;
+		font-size: 0.82rem;
+	}
+
+	.cv-lang-btn {
+		padding: 2px 4px;
+		font-size: 0.62rem;
 	}
 }
 
