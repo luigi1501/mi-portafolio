@@ -23,7 +23,7 @@ const data = {
     {
       categoria: "Bases de Datos",
       categoria_en: "Databases",
-      tags: ["TiDB Cloud (NewSQL)", "MySQL", "MongoDB", "PostgreSQL", "SQLite"],
+      tags: ["TiDB Cloud", "MySQL", "MongoDB", "PostgreSQL", "SQLite"],
     },
     {
       categoria: "Frontend & Cloud",

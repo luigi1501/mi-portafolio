@@ -691,6 +691,15 @@ a {
 	font-size: 1.15rem;
 }
 
+.tag-icon-img {
+	width: 18px;
+	height: 18px;
+	object-fit: contain;
+	vertical-align: middle;
+	border-radius: 3px;
+	flex-shrink: 0;
+}
+
 /* -----------------------------------------------------------
    6. CARRUSEL HORIZONTAL DE PROYECTOS (NEOMÓRFICO)
    ----------------------------------------------------------- */
