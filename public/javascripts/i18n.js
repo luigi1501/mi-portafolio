@@ -33,7 +33,7 @@ const translations = {
     "skills.subtitle":     "Stack tecnológico moderno centrado en rendimiento, arquitectura limpia y soluciones escalables.",
     "skills.period-label": "Período de experiencia activa:",
     "skills.badge":        "🚀 Período de experiencia activa:",
-    "skills.summary1":     "Mi enfoque principal se centra en el desarrollo backend con <strong>Node.js</strong> y <strong>Express</strong>, complementado con aplicaciones sólidas en <strong>Python</strong>. Poseo amplia experiencia en el diseño e integración de bases de datos relacionales y NoSQL como <strong>MongoDB, MySQL, PostgreSQL, SQLite y TiDB Cloud</strong>.",
+    "skills.summary1":     "Mi enfoque principal se centra en el desarrollo backend con <strong>Node.js</strong> y <strong>Express</strong>, complementado con aplicaciones sólidas en <strong>Python</strong>. Poseo amplia experiencia en el diseño e integración de bases de datos relacionales y NoSQL como <strong>MongoDB, MySQL, PostgreSQL, SQLite, TiDB Cloud y Turso Cloud</strong>.",
     "skills.summary2":     "En el frontend, construyo interfaces dinámicas, responsivas y accesibles utilizando <strong>HTML5, CSS3, JavaScript y EJS</strong>, priorizando siempre la experiencia del usuario y la velocidad de carga.",
 
     // PROJECTS
@@ -134,7 +134,7 @@ const translations = {
     "skills.subtitle":     "Modern tech stack focused on performance, clean architecture, and scalable solutions.",
     "skills.period-label": "Active experience period:",
     "skills.badge":        "🚀 Active experience period:",
-    "skills.summary1":     "My main focus is backend development with <strong>Node.js</strong> and <strong>Express</strong>, complemented by solid applications in <strong>Python</strong>. I have extensive experience designing and integrating relational and NoSQL databases such as <strong>MongoDB, MySQL, PostgreSQL, SQLite, and TiDB Cloud</strong>.",
+    "skills.summary1":     "My main focus is backend development with <strong>Node.js</strong> and <strong>Express</strong>, complemented by solid applications in <strong>Python</strong>. I have extensive experience designing and integrating relational and NoSQL databases such as <strong>MongoDB, MySQL, PostgreSQL, SQLite, TiDB Cloud, and Turso Cloud</strong>.",
     "skills.summary2":     "On the frontend, I build dynamic, responsive, and accessible interfaces using <strong>HTML5, CSS3, JavaScript, and EJS</strong>, always prioritizing user experience and load speed.",
 
     // PROJECTS
