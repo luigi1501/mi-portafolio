@@ -17,6 +17,7 @@ const translations = {
     "hero.greeting":    "¡Hola! Soy",
     "hero.name-role":   "Desarrollador Full Stack",
     "hero.experience":  "de experiencia",
+    "hero.description": "Desarrollo Full Stack especializado en la creación de aplicaciones escalables, integración de bases de datos distribuidas en la nube y despliegue continuo (CI/CD).",
     "hero.btn-projects":"Ver Proyectos",
     "hero.btn-cv":      "Ver CV",
     "hero.btn-download":"Descargar CV",
@@ -117,6 +118,7 @@ const translations = {
     "hero.greeting":    "Hi! I'm",
     "hero.name-role":   "Full Stack Developer",
     "hero.experience":  "of experience",
+    "hero.description": "Full Stack Developer specializing in building scalable web applications, integrating distributed cloud databases, and implementing continuous deployment pipelines (CI/CD).",
     "hero.btn-projects":"View Projects",
     "hero.btn-cv":      "View CV",
     "hero.btn-download":"Download CV",
@@ -250,6 +252,12 @@ function applyTranslations(lang) {
   document.querySelectorAll('[data-i18n-aria]').forEach(el => {
     const key = el.getAttribute('data-i18n-aria');
     if (t[key] !== undefined) el.setAttribute('aria-label', t[key]);
+  });
+
+  // Elementos con data-lang-es / data-lang-en (hero subtitle, etc.)
+  document.querySelectorAll('[data-lang-es][data-lang-en]').forEach(el => {
+    const val = lang === 'en' ? el.getAttribute('data-lang-en') : el.getAttribute('data-lang-es');
+    if (val) el.textContent = val;
   });
 
   // Actualizar atributo html lang
