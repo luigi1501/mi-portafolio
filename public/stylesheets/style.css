@@ -700,6 +700,14 @@ a {
 	flex-shrink: 0;
 }
 
+.tag-icon-svg-wrapper {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	vertical-align: middle;
+	flex-shrink: 0;
+}
+
 /* -----------------------------------------------------------
    6. CARRUSEL HORIZONTAL DE PROYECTOS (NEOMÓRFICO)
    ----------------------------------------------------------- */

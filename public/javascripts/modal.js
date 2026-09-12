@@ -1,3 +1,71 @@
+function getTechIconHTML(techName) {
+    if (!techName) return '';
+    const cleanTag = techName.toLowerCase().split('(')[0].trim();
+    switch (cleanTag) {
+        case 'node.js':
+        case 'node':
+            return '<i class="tag-icon devicon-nodejs-plain colored"></i>';
+        case 'express':
+            return '<i class="tag-icon devicon-express-original"></i>';
+        case '.net 10':
+        case '.net':
+        case '.net maui':
+        case 'asp.net core web api':
+            return '<i class="tag-icon devicon-dotnetcore-plain colored"></i>';
+        case 'c#':
+            return '<i class="tag-icon devicon-csharp-plain colored"></i>';
+        case 'python':
+            return '<i class="tag-icon devicon-python-plain colored"></i>';
+        case 'flask':
+            return '<i class="tag-icon devicon-flask-original colored"></i>';
+        case 'django':
+            return '<i class="tag-icon devicon-django-plain colored"></i>';
+        case 'blazor':
+            return '<i class="tag-icon devicon-blazor-original colored"></i>';
+        case 'tailwind css':
+        case 'tailwind':
+            return '<i class="tag-icon devicon-tailwindcss-plain colored"></i>';
+        case 'javascript':
+        case 'js':
+            return '<i class="tag-icon devicon-javascript-plain colored"></i>';
+        case 'mongodb':
+            return '<i class="tag-icon devicon-mongodb-plain colored"></i>';
+        case 'mysql':
+            return '<i class="tag-icon devicon-mysql-plain colored"></i>';
+        case 'postgresql':
+            return '<i class="tag-icon devicon-postgresql-plain colored"></i>';
+        case 'sqlite':
+            return '<i class="tag-icon devicon-sqlite-plain colored"></i>';
+        case 'supabase':
+            return '<i class="tag-icon devicon-supabase-plain colored"></i>';
+        case 'html5':
+        case 'html':
+            return '<i class="tag-icon devicon-html5-plain colored"></i>';
+        case 'css3':
+        case 'css':
+            return '<i class="tag-icon devicon-css3-plain colored"></i>';
+        case 'bootstrap':
+            return '<i class="tag-icon devicon-bootstrap-plain colored"></i>';
+        case 'vercel':
+            return '<i class="tag-icon devicon-vercel-original"></i>';
+        case 'chart.js':
+            return '<i class="tag-icon devicon-chartjs-plain colored"></i>';
+        case 'ejs':
+            return '<img class="tag-icon tag-icon-img" src="/images/ejs.svg" alt="EJS logo" width="16" height="16" loading="lazy" />';
+        case 'tidb':
+        case 'tidb cloud':
+            return '<img class="tag-icon tag-icon-img" src="/images/tidb.svg" alt="TiDB logo" width="16" height="16" loading="lazy" />';
+        case 'sql/nosql':
+            return '<span class="tag-icon-svg-wrapper"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#60a5fa" stroke-width="2" style="vertical-align:middle;flex-shrink:0"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>';
+        case 'restful apis':
+            return '<span class="tag-icon-svg-wrapper"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;flex-shrink:0"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></span>';
+        case 'qr code scanner':
+            return '<span class="tag-icon-svg-wrapper"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#34d399" stroke-width="2" style="vertical-align:middle;flex-shrink:0"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>';
+        default:
+            return '';
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // ----------------------------------------------------
     // 1. MODAL DE PROYECTOS
@@ -51,8 +119,9 @@ document.addEventListener('DOMContentLoaded', () => {
             modalTechTags.innerHTML = '';
             proyecto.tecnologias.forEach(tech => {
                 const span = document.createElement('span');
-                span.className = 'tag';
-                span.textContent = tech;
+                span.className = 'tag has-logo';
+                const iconHTML = getTechIconHTML(tech);
+                span.innerHTML = `${iconHTML} ${tech}`;
                 modalTechTags.appendChild(span);
             });
 

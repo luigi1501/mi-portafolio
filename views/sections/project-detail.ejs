@@ -29,7 +29,49 @@
     <h2>Tecnologías Utilizadas</h2>
     <div class="tags-container">
       <% proyecto.tecnologias.forEach(tech => { %>
-        <span class="skill-tag"><%= tech %></span>
+        <%
+            let icon = (typeof getTechIcon === 'function') ? getTechIcon(tech) : { type: 'none' };
+            if (!icon || icon.type === 'none') {
+                const cleanTag = tech.toLowerCase().split('(')[0].trim();
+                switch (cleanTag) {
+                    case 'node.js': case 'node': icon = { type: 'devicon', class: 'devicon-nodejs-plain colored' }; break;
+                    case 'express': icon = { type: 'devicon', class: 'devicon-express-original' }; break;
+                    case '.net 10': case '.net': case '.net maui': case 'asp.net core web api': icon = { type: 'devicon', class: 'devicon-dotnetcore-plain colored' }; break;
+                    case 'c#': icon = { type: 'devicon', class: 'devicon-csharp-plain colored' }; break;
+                    case 'python': icon = { type: 'devicon', class: 'devicon-python-plain colored' }; break;
+                    case 'flask': icon = { type: 'devicon', class: 'devicon-flask-original colored' }; break;
+                    case 'django': icon = { type: 'devicon', class: 'devicon-django-plain colored' }; break;
+                    case 'blazor': icon = { type: 'devicon', class: 'devicon-blazor-original colored' }; break;
+                    case 'tailwind css': case 'tailwind': icon = { type: 'devicon', class: 'devicon-tailwindcss-plain colored' }; break;
+                    case 'javascript': case 'js': icon = { type: 'devicon', class: 'devicon-javascript-plain colored' }; break;
+                    case 'mongodb': icon = { type: 'devicon', class: 'devicon-mongodb-plain colored' }; break;
+                    case 'mysql': icon = { type: 'devicon', class: 'devicon-mysql-plain colored' }; break;
+                    case 'postgresql': icon = { type: 'devicon', class: 'devicon-postgresql-plain colored' }; break;
+                    case 'sqlite': icon = { type: 'devicon', class: 'devicon-sqlite-plain colored' }; break;
+                    case 'supabase': icon = { type: 'devicon', class: 'devicon-supabase-plain colored' }; break;
+                    case 'html5': case 'html': icon = { type: 'devicon', class: 'devicon-html5-plain colored' }; break;
+                    case 'css3': case 'css': icon = { type: 'devicon', class: 'devicon-css3-plain colored' }; break;
+                    case 'bootstrap': icon = { type: 'devicon', class: 'devicon-bootstrap-plain colored' }; break;
+                    case 'vercel': icon = { type: 'devicon', class: 'devicon-vercel-original' }; break;
+                    case 'chart.js': icon = { type: 'devicon', class: 'devicon-chartjs-plain colored' }; break;
+                    case 'ejs': icon = { type: 'img', src: '/images/ejs.svg' }; break;
+                    case 'tidb': case 'tidb cloud': icon = { type: 'img', src: '/images/tidb.svg' }; break;
+                    case 'sql/nosql': icon = { type: 'svg', html: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#60a5fa" stroke-width="2" style="vertical-align:middle;flex-shrink:0"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>' }; break;
+                    case 'restful apis': icon = { type: 'svg', html: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;flex-shrink:0"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>' }; break;
+                    case 'qr code scanner': icon = { type: 'svg', html: '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#34d399" stroke-width="2" style="vertical-align:middle;flex-shrink:0"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>' }; break;
+                }
+            }
+        %>
+        <span class="tag skill-tag <%= (icon.type !== 'none') ? 'has-logo' : '' %>">
+          <% if (icon.type === 'devicon') { %>
+            <i class="tag-icon <%= icon.class %>"></i>
+          <% } else if (icon.type === 'img') { %>
+            <img class="tag-icon tag-icon-img" src="<%= icon.src %>" alt="<%= tech %> logo" width="18" height="18" loading="lazy" />
+          <% } else if (icon.type === 'svg') { %>
+            <span class="tag-icon-svg-wrapper"><%- icon.html %></span>
+          <% } %>
+          <%= tech %>
+        </span>
       <% }) %>
     </div>
   </div>

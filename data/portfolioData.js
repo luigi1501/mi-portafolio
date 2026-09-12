@@ -23,7 +23,7 @@ const data = {
     {
       categoria: "Bases de Datos",
       categoria_en: "Databases",
-      tags: ["TiDB Cloud", "MySQL", "MongoDB", "PostgreSQL", "SQLite"],
+      tags: ["TiDB", "MySQL", "MongoDB", "PostgreSQL", "SQLite", "Supabase"],
     },
     {
       categoria: "Frontend & Cloud",
@@ -78,7 +78,7 @@ const data = {
       nombre_en: "Pro Inventory Management System",
       slug: "gestion-inventario",
       fecha: "2026",
-      tecnologias: ["Node.js", "Express", "TiDB Cloud", "MySQL", "Vercel", "EJS", "Chart.js"],
+      tecnologias: ["Node.js", "Express", "TiDB", "MySQL", "Vercel", "EJS", "Chart.js"],
       resumen:
         "Sistema distribuido de gestión de stock con analíticas en tiempo real diseñado para eliminar pérdidas por quiebre de inventario.",
       resumen_en:
@@ -88,9 +88,9 @@ const data = {
       problema_en:
         "Small and medium-sized businesses face constant losses due to uncontrolled stock and lack of real-time visibility, relying on manual records or non-centralized local databases.",
       solucionTecnica:
-        "Diseño de una arquitectura Full Stack basada en Node.js/Express integrada con TiDB Cloud (NewSQL distribuido en AWS Virginia). Se optó por TiDB para garantizar escalabilidad horizontal elástica y consistencia ACID sobre protocolo MySQL. Se integró Chart.js para dashboards dinámicos y despliegue continuo mediante Vercel.",
+        "Diseño de una arquitectura Full Stack basada en Node.js/Express integrada con TiDB Cloud (distribuido en AWS Virginia). Se optó por TiDB para garantizar escalabilidad horizontal elástica y consistencia ACID sobre protocolo MySQL. Se integró Chart.js para dashboards dinámicos y despliegue continuo mediante Vercel.",
       solucionTecnica_en:
-        "Designed a Full Stack architecture using Node.js/Express integrated with TiDB Cloud (NewSQL distributed on AWS Virginia). TiDB was chosen to ensure elastic horizontal scalability and ACID consistency over the MySQL protocol. Chart.js was integrated for dynamic dashboards with continuous deployment via Vercel.",
+        "Designed a Full Stack architecture using Node.js/Express integrated with TiDB Cloud (distributed on AWS Virginia). TiDB was chosen to ensure elastic horizontal scalability and ACID consistency over the MySQL protocol. Chart.js was integrated for dynamic dashboards with continuous deployment via Vercel.",
       impacto:
         "Visibilidad inmediata de alertas de stock crítico, 100% de disponibilidad mediante infraestructura serverless y garantía de alta disponibilidad en consultas concurrentes sin degradar rendimiento.",
       impacto_en:
