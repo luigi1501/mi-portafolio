@@ -55,6 +55,15 @@ function getTechIconHTML(techName) {
         case 'tidb':
         case 'tidb cloud':
             return '<img class="tag-icon tag-icon-img" src="/images/tidb.svg" alt="TiDB logo" width="16" height="16" loading="lazy" />';
+        case 'turso':
+        case 'turso cloud':
+            return '<span class="tag-icon-svg-wrapper"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#2dd4bf" stroke-width="2" style="vertical-align:middle;flex-shrink:0"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>';
+        case 'cloudinary':
+            return '<span class="tag-icon-svg-wrapper"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;flex-shrink:0"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></span>';
+        case 'render':
+            return '<span class="tag-icon-svg-wrapper"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#c084fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;flex-shrink:0"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></span>';
+        case 'docker':
+            return '<i class="tag-icon devicon-docker-plain colored"></i>';
         case 'sql/nosql':
             return '<span class="tag-icon-svg-wrapper"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#60a5fa" stroke-width="2" style="vertical-align:middle;flex-shrink:0"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>';
         case 'restful apis':

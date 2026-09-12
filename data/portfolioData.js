@@ -23,18 +23,55 @@ const data = {
     {
       categoria: "Bases de Datos",
       categoria_en: "Databases",
-      tags: ["TiDB", "MySQL", "MongoDB", "PostgreSQL", "SQLite", "Supabase"],
+      tags: ["TiDB", "Turso Cloud", "MySQL", "MongoDB", "PostgreSQL", "SQLite", "Supabase"],
     },
     {
       categoria: "Frontend & Cloud",
       categoria_en: "Frontend & Cloud",
-      tags: ["HTML5", "CSS3", "Tailwind CSS", "Blazor", "EJS", "Vercel", "Bootstrap", "Chart.js"],
+      tags: ["HTML5", "CSS3", "Tailwind CSS", "Blazor", "EJS", "Cloudinary", "Render", "Vercel", "Bootstrap", "Chart.js"],
     },
   ],
 
   // 🚀 Tus proyectos clave
   proyectos: [
-    // 🛑 PROYECTO 1: TasaPlus — Monitor Inteligente y Calculadora Financiera
+    // 🛑 PROYECTO 1: KeyboardStore — E-Commerce de Teclados Mecánicos & Custom
+    {
+      nombre: "KeyboardStore — E-Commerce de Teclados Mecánicos & Custom",
+      nombre_en: "KeyboardStore — Mechanical & Custom Keyboards E-Commerce",
+      slug: "keyboard-store",
+      fecha: "2026",
+      tecnologias: [
+        "Node.js",
+        "Express",
+        "Turso Cloud",
+        "SQLite",
+        "Cloudinary",
+        "EJS",
+        "Render",
+      ],
+      resumen:
+        "Plataforma Full-Stack de comercio electrónico para teclados mecánicos y custom con arquitectura distribuida Turso/SQLite, gestión de imágenes CDN en Cloudinary y panel de administración completo.",
+      resumen_en:
+        "Full-Stack e-commerce platform for mechanical and custom keyboards featuring a distributed Turso/SQLite cloud database architecture, Cloudinary CDN image management, and full admin dashboard.",
+      problema:
+        "Los e-commerce desplegados en servidores gratuitos (como Render) sufren pérdidas de datos de productos e imágenes por el reinicio periódico del sistema de archivos efímero, además de cuellos de botella al cargar archivos multimedia.",
+      problema_en:
+        "E-commerce platforms deployed on free hosting tiers (like Render) suffer from product data and image loss due to ephemeral filesystem restarts, alongside performance bottlenecks when loading heavy media files.",
+      solucionTecnica:
+        "Diseño de una arquitectura resiliente con persistencia 24/7 mediante Turso Cloud (LibSQL/SQLite distribuido en la nube) con fallback automático a SQLite local (`sql.js`). Integración del SDK de Cloudinary con Multer para optimización y resize automático de imágenes vía CDN en tiempo real. Incluye autenticación de clientes/admin, carrito persistente, pago cifrado JWT y filtrado dinámico con animación mecanografiada (typing effect).",
+      solucionTecnica_en:
+        "Designed a resilient architecture with 24/7 persistence via Turso Cloud (distributed cloud LibSQL/SQLite) with automatic fallback to local SQLite (`sql.js`). Integrated Cloudinary SDK with Multer for automatic image resize and real-time CDN optimization. Features admin/client auth, persistent cart, JWT encrypted checkout, and dynamic live search with custom typing effect.",
+      impacto:
+        "Garantía de persistencia total del catálogo y ventas en la nube sin pérdida de información, reducción del 70% en tiempos de carga de imágenes gracias a la CDN de Cloudinary y administración completa de inventario sin depender de almacenamiento local.",
+      impacto_en:
+        "Guaranteed 100% cloud persistence of catalog and transactions without data loss, 70% reduction in image loading times powered by Cloudinary CDN, and complete inventory management decoupled from local storage.",
+      linkDemo: "https://keyboardstore-229r.onrender.com/",
+      linkRepo: "https://github.com/luigi1501/P3_30703855",
+      enProceso: false,
+      destacado: true,
+    },
+
+    // 🛑 PROYECTO 2: TasaPlus — Monitor Inteligente y Calculadora Financiera
     {
       nombre: "TasaPlus — Monitor Inteligente y Calculadora Financiera",
       nombre_en: "TasaPlus — Intelligent Monitor & Financial Calculator",
@@ -72,7 +109,7 @@ const data = {
       destacado: true,
     },
 
-    // 🛑 PROYECTO 2: Sistema de Gestión de Inventario Pro
+    // 🛑 PROYECTO 3: Sistema de Gestión de Inventario Pro
     {
       nombre: "Sistema de Gestión de Inventario Pro",
       nombre_en: "Pro Inventory Management System",
@@ -101,7 +138,7 @@ const data = {
       destacado: true,
     },
 
-    // 🛑 PROYECTO 2: Sistema de Control de Asistencia QR
+    // 🛑 PROYECTO 4: Sistema de Control de Asistencia QR
     {
       nombre: "Sistema de Control de Asistencia QR",
       nombre_en: "QR Attendance Control System",
@@ -130,7 +167,7 @@ const data = {
       destacado: true,
     },
 
-    // 🛑 PROYECTO 3: Blog Profesional con Python
+    // 🛑 PROYECTO 5: Blog Profesional con Python
     {
       nombre: "Blog Profesional con Python",
       nombre_en: "Professional Blog with Python",
