@@ -79,9 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
             langEnBtn.classList.remove('active');
             langEsBtn.setAttribute('aria-pressed', 'true');
             langEnBtn.setAttribute('aria-pressed', 'false');
-            openTabBtn.href = '/images/Curriculum Luigi.pdf';
-            downloadBtn.href = '/images/Curriculum Luigi.pdf';
-            downloadBtn.setAttribute('download', 'Curriculum_Luis_Rodriguez.pdf');
         } else {
             viewerEs.style.display = 'none';
             viewerEn.style.display = 'flex';
@@ -89,14 +86,34 @@ document.addEventListener('DOMContentLoaded', function () {
             langEnBtn.classList.add('active');
             langEsBtn.setAttribute('aria-pressed', 'false');
             langEnBtn.setAttribute('aria-pressed', 'true');
-            openTabBtn.href = '/images/CV_Luis_Rodriguez.pdf';
-            downloadBtn.href = '/images/CV_Luis_Rodriguez.pdf';
-            downloadBtn.setAttribute('download', 'CV_Luis_Rodriguez.pdf');
+        }
+
+        const isEs = lang !== 'en';
+        const cvFile = isEs ? '/images/Curriculum Luigi.pdf' : '/images/CV_Luis_Rodriguez.pdf';
+        const downloadName = isEs ? 'Curriculum_Luis_Rodriguez_ES.pdf' : 'CV_Luis_Rodriguez_EN.pdf';
+
+        if (openTabBtn) openTabBtn.href = cvFile;
+        if (downloadBtn) {
+            downloadBtn.href = cvFile;
+            downloadBtn.setAttribute('download', downloadName);
         }
     }
 
-    langEsBtn.addEventListener('click', () => switchLang('es'));
-    langEnBtn.addEventListener('click', () => switchLang('en'));
+    langEsBtn.addEventListener('click', () => {
+        if (typeof window.setLanguage === 'function') {
+            window.setLanguage('es');
+        } else {
+            switchLang('es');
+        }
+    });
+
+    langEnBtn.addEventListener('click', () => {
+        if (typeof window.setLanguage === 'function') {
+            window.setLanguage('en');
+        } else {
+            switchLang('en');
+        }
+    });
 
     // Sincronizar automáticamente con el idioma general al abrir o al cambiar de idioma
     window.addEventListener('languageChanged', (e) => {

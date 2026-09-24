@@ -273,8 +273,26 @@ function applyTranslations(lang) {
   // Traducir tarjetas de proyectos y categorías
   applyProjectTranslations(lang);
 
-  // Disparar evento global para notificat a otros scripts (modal.js, etc.)
+  // Actualizar enlaces de descarga del CV según idioma (ES / EN)
+  applyCVDownloadLinks(lang);
+
+  // Disparar evento global para notificar a otros scripts (modal.js, etc.)
   window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
+}
+
+function applyCVDownloadLinks(lang) {
+  const isEs = lang !== 'en';
+  const cvFile = isEs ? '/images/Curriculum Luigi.pdf' : '/images/CV_Luis_Rodriguez.pdf';
+  const downloadFileName = isEs ? 'Curriculum_Luis_Rodriguez_ES.pdf' : 'CV_Luis_Rodriguez_EN.pdf';
+
+  document.querySelectorAll('.btn-cv, .cv-download-link, #cv-download-btn, a[download*="Curriculum"], a[download*="CV_Luis_Rodriguez"]').forEach(link => {
+    link.href = cvFile;
+    link.setAttribute('download', downloadFileName);
+  });
+
+  document.querySelectorAll('.cv-open-link, #cv-open-tab').forEach(link => {
+    link.href = cvFile;
+  });
 }
 
 function applyProjectTranslations(lang) {
