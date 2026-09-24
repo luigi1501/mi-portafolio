@@ -2291,13 +2291,14 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 
 /* Footer Neomórfico — flujo normal al final del contenido */
 .main-footer {
-	max-width: 1140px;
-	margin: 48px auto 0;
-	padding: 20px 28px;
+	max-width: 1100px;
+	margin: 48px auto 24px;
+	padding: 18px 28px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: 16px;
+	flex-wrap: wrap;
 	background-color: var(--bg-header);
 	backdrop-filter: blur(16px);
 	-webkit-backdrop-filter: blur(16px);
@@ -2317,8 +2318,8 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	justify-content: center;
-	gap: 10px;
+	justify-content: flex-end;
+	gap: 8px;
 }
 
 .footer-link {
@@ -2365,12 +2366,21 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 
 @media (max-width: 768px) {
 	.main-footer {
-		margin: 32px 12px 12px;
-		padding: 16px 14px;
+		margin: 32px 12px 16px;
+		padding: 16px 16px;
 		flex-direction: column;
+		align-items: center;
 		justify-content: center;
 		text-align: center;
+		gap: 12px;
+	}
+	.social-links {
+		justify-content: center;
 		gap: 8px;
+	}
+	.footer-link {
+		padding: 6px 10px;
+		font-size: 0.8rem;
 	}
 	.cv-modal-box {
 		width: 100vw;
@@ -2387,12 +2397,20 @@ textarea::-webkit-resizer, .form-textarea::-webkit-resizer {
 
 @media (max-width: 480px) {
 	.main-footer {
-		padding: 12px 10px;
-		margin: 24px 8px 8px;
+		padding: 14px 10px;
+		margin: 24px 8px 12px;
+		gap: 10px;
+	}
+	.social-links {
+		gap: 6px;
 	}
 	.footer-link {
-		padding: 5px 10px;
-		font-size: 0.78rem;
+		padding: 5px 8px;
+		font-size: 0.76rem;
+		gap: 4px;
+	}
+	.footer-icon {
+		font-size: 1rem;
 	}
 	.cv-action-btn .btn-label-text { display: none; }
 	.cv-action-btn { padding: 4px 6px !important; min-width: 30px; height: 30px !important; justify-content: center; }
