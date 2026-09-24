@@ -43,5 +43,35 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // ----------------------------------------------------
+  // ScrollSpy: Resaltar la sección activa al hacer scroll
+  // ----------------------------------------------------
+  const sections = document.querySelectorAll("section[id]");
+  const navAnchorLinks = document.querySelectorAll(".main-nav a.nav-link");
+
+  function updateScrollSpy() {
+    const scrollPosition = window.scrollY || window.pageYOffset;
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 120;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute("id");
+
+      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        navAnchorLinks.forEach((link) => {
+          const href = link.getAttribute("href");
+          if (href && (href === `#${sectionId}` || href === `/#${sectionId}` || (sectionId === "inicio" && (href === "/" || href === "/#inicio")))) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
+      }
+    });
+  }
+
+  window.addEventListener("scroll", updateScrollSpy, { passive: true });
+  updateScrollSpy();
 });
 

@@ -151,6 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 linkDemo.style.display = 'inline-flex';
                 linkDemo.classList.remove('btn-disabled');
                 linkDemo.target = "_blank";
+                linkDemo.rel = "noopener noreferrer";
             } else {
                 linkDemo.style.display = 'none';
             }
@@ -163,6 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 linkRepo.style.cursor = 'pointer';
                 linkRepo.onclick = null;
                 linkRepo.target = "_blank";
+                linkRepo.rel = "noopener noreferrer";
             } else {
                 linkRepo.href = '#'; 
                 const spanRepo = linkRepo.querySelector('span');
