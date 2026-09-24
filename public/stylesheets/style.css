@@ -15,7 +15,7 @@
 
 	--bg-body: #e6ecf5;
 	--bg-card: #e6ecf5;
-	--bg-header: rgba(230, 236, 245, 0.88);
+	--bg-header: rgba(230, 236, 245, 0.97);
 	--bg-tag: #e6ecf5;
 	--bg-tag-hover: #dbe2ef;
 
@@ -60,7 +60,7 @@ body.dark-mode {
 
 	--bg-body: #181f2c;
 	--bg-card: #181f2c;
-	--bg-header: rgba(24, 31, 44, 0.88);
+	--bg-header: rgba(24, 31, 44, 0.97);
 	--bg-tag: #181f2c;
 	--bg-tag-hover: #1f2838;
 
@@ -402,10 +402,14 @@ a {
 	align-items: center;
 	transition: var(--transition);
 	position: relative;
+	/* Fondo siempre opaco para visibilidad garantizada */
+	background-color: var(--bg-body);
+	opacity: 1;
 }
 
 .menu-toggle:hover {
 	box-shadow: var(--neo-shadow-outset-hover);
+	background-color: var(--bg-card);
 }
 
 .menu-toggle:active, .menu-toggle.active {
@@ -414,11 +418,13 @@ a {
 
 .hamburger-bar {
 	width: 22px;
-	height: 2px;
+	height: 2.5px;
 	background-color: var(--text-title);
 	border-radius: 4px;
 	transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease, background-color 0.3s ease;
 	transform-origin: center;
+	/* Color fijo para garantizar visibilidad siempre */
+	opacity: 1 !important;
 }
 
 .menu-toggle.active .hamburger-bar:nth-child(1) {
@@ -427,7 +433,7 @@ a {
 }
 
 .menu-toggle.active .hamburger-bar:nth-child(2) {
-	opacity: 0;
+	opacity: 0 !important;
 	transform: scaleX(0);
 }
 
